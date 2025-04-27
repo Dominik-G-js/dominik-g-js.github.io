@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dominik G. - Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
@@ -15,97 +16,232 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            opacity: 0; /* Initial state for fade-in */
+            animation: fadeIn 1s ease-in-out forwards;
         }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
         header {
             background-color: #0056b3;
             color: #fff;
-            padding: 20px 0;
+            padding: 40px 20px; /* More padding */
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px; /* More margin */
         }
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 3em; /* Larger font */
+            margin-bottom: 10px;
         }
         header p {
             margin-top: 5px;
-            font-size: 1.1em;
+            font-size: 1.2em; /* Larger font */
+            opacity: 0.9;
         }
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 0 20px;
             flex-grow: 1;
+            width: 100%; /* Ensure container uses full width */
+            box-sizing: border-box; /* Include padding in width */
         }
         .section {
             background: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 30px; /* More padding */
+            margin-bottom: 30px; /* More margin */
+            border-radius: 10px; /* More rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+            opacity: 0; /* Initial state for section fade-in */
+            transform: translateY(20px); /* Initial state for slide-up */
+            animation: sectionFadeIn 0.8s ease-out forwards;
         }
+
+        .section:nth-child(1) { animation-delay: 0.2s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+        .section:nth-child(4) { animation-delay: 0.8s; }
+        .section:nth-child(5) { animation-delay: 1.0s; }
+
+
+        @keyframes sectionFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
         .section h2 {
             color: #0056b3;
             border-bottom: 2px solid #007bff;
-            padding-bottom: 10px;
+            padding-bottom: 15px; /* More padding */
             margin-top: 0;
+            margin-bottom: 20px; /* More margin */
+            font-size: 1.8em;
         }
+
+        /* Skill Bars Styling */
         .skills-list {
             list-style: none;
             padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
         }
         .skills-list li {
-            background-color: #007bff;
+            background-color: #e9ecef; /* Background for the bar track */
+            margin-bottom: 10px;
+            padding: 0;
+            border-radius: 5px;
+            height: 25px; /* Height of the skill bar */
+            position: relative;
+            overflow: hidden; /* Hide overflowing background */
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-level {
+            display: block;
+            height: 100%;
+            background-color: #28a745; /* Green fill color */
+            border-radius: 5px;
+            text-align: right;
             color: #fff;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
+            font-weight: bold;
+            line-height: 25px; /* Center text vertically */
+            padding-right: 10px;
+            box-sizing: border-box;
+            width: 0; /* Start with 0 width for animation */
+            animation: fillSkillBar 1.5s ease-out forwards;
         }
+
+        /* Define widths and colors for different skill levels */
+        .skill-level.advanced {
+             background-color: #007bff; /* Blue for advanced */
+             animation-delay: 1.2s; /* Stagger animation */
+             /* Final width handled by JS for dynamic content, but hardcoded for CSS-only example */
+             /* Let's use a simple class-based width for CSS-only */
+        }
+         .skill-level.advanced .skill-name { width: 90%; } /* Example width */
+
+        .skill-level.intermediate {
+             background-color: #ffc107; /* Yellow for intermediate */
+             animation-delay: 1.3s;
+        }
+         .skill-level.intermediate .skill-name { width: 60%; } /* Example width */
+
+        .skill-level.basics {
+             background-color: #6c757d; /* Gray for basics */
+             animation-delay: 1.4s;
+        }
+         .skill-level.basics .skill-name { width: 30%; } /* Example width */
+
+        .skill-level .skill-name {
+            position: absolute;
+            left: 10px;
+            color: #333; /* Text color */
+            font-weight: bold;
+            z-index: 1; /* Ensure text is above the fill */
+        }
+         .skill-level.advanced .skill-name,
+         .skill-level.intermediate .skill-name {
+            color: #fff; /* White text for darker backgrounds */
+         }
+
+
+        @keyframes fillSkillBar {
+            to {
+                width: 100%; /* Fills the skill item container */
+            }
+        }
+
+
         .experience-item {
-            margin-bottom: 15px;
+            margin-bottom: 20px; /* More margin */
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
         }
+         .experience-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+         }
+
         .experience-item h3 {
             margin: 0;
             color: #555;
+            font-size: 1.1em;
         }
         .experience-item p {
             margin: 5px 0 0 0;
-            font-size: 0.95em;
+            font-size: 1em;
             color: #666;
         }
+         .experience-item p:last-child {
+            font-size: 0.95em;
+            color: #777;
+         }
+
         .button-link {
             display: inline-block;
             margin-top: 20px;
             padding: 12px 25px;
             font-size: 1em;
             color: #fff;
-            background-color: #28a745; /* Zelenější barva pro lepší kontrast */
+            background-color: #28a745;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
         .button-link:hover {
             background-color: #218838;
+            transform: translateY(-2px); /* Simple hover animation */
         }
+
         footer {
-            margin-top: 30px;
-            padding: 20px;
+            margin-top: 40px; /* More margin */
+            padding: 30px 20px;
             text-align: center;
-            font-size: 0.9em;
-            color: #777;
+            font-size: 0.95em;
+            color: #666;
             background-color: #f8f9fa;
+            width: 100%;
+            box-sizing: border-box;
         }
         footer a {
              color: #007bff;
              text-decoration: none;
+             transition: color 0.3s ease;
         }
          footer a:hover {
             text-decoration: underline;
+            color: #0056b3;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            .container {
+                padding: 0 10px;
+            }
+            .section {
+                padding: 20px;
+            }
+             .section h2 {
+                font-size: 1.5em;
+             }
+             .button-link {
+                padding: 10px 20px;
+             }
         }
     </style>
 </head>
@@ -119,30 +255,72 @@
         <div class="section">
             <h2>About Me</h2>
             <p>
-                Passionate programmer focusing on web development, applications, and games. I have over three years of experience in development[cite: 2], working on various projects within the Upgates platform[cite: 2], which combines technologies such as Latte, Nette, HTML, JavaScript, and AJAX[cite: 2, 4]. I am enthusiastic about learning new skills and discovering innovative ways to create attractive and functional digital products[cite: 3].
+                Passionate programmer focusing on web development, applications, and games. I have over three years of experience in development, working on various projects within the Upgates platform, which combines technologies such as Latte, Nette, HTML, JavaScript, and AJAX. I am enthusiastic about learning new skills and discovering innovative ways to create attractive and functional digital products.
             </p>
         </div>
 
         <div class="section">
             <h2>Skills</h2>
             <ul class="skills-list">
-                <li>JavaScript - Advanced [cite: 1]</li>
-                <li>HTML - Advanced [cite: 1]</li>
-                <li>CSS - Intermediate [cite: 1]</li>
-                <li>Python - Advanced [cite: 1]</li>
-                <li>Microsoft Excel - Advanced [cite: 1]</li>
-                <li>Microsoft Word - Advanced [cite: 1]</li>
-                <li>PHP - Basics [cite: 1]</li>
-                <li>Latte - Basics [cite: 1]</li>
-                <li>AJAX - Basics [cite: 1]</li>
+                <li>
+                    <div class="skill-level advanced">
+                         <span class="skill-name">JavaScript - Advanced</span>
+                    </div>
+                </li>
+                <li>
+                     <div class="skill-level advanced">
+                         <span class="skill-name">HTML - Advanced</span>
+                     </div>
+                </li>
+                <li>
+                     <div class="skill-level intermediate">
+                         <span class="skill-name">CSS - Intermediate</span>
+                     </div>
+                </li>
+                 <li>
+                     <div class="skill-level advanced">
+                         <span class="skill-name">Python - Advanced</span>
+                     </div>
+                 </li>
+                  <li>
+                     <div class="skill-level advanced">
+                         <span class="skill-name">Microsoft Excel - Advanced</span>
+                     </div>
+                 </li>
+                  <li>
+                     <div class="skill-level advanced">
+                         <span class="skill-name">Microsoft Word - Advanced</span>
+                     </div>
+                 </li>
+                <li>
+                     <div class="skill-level basics">
+                          <span class="skill-name">PHP - Basics</span>
+                     </div>
+                </li>
+                <li>
+                     <div class="skill-level basics">
+                         <span class="skill-name">Latte - Basics</span>
+                     </div>
+                 </li>
+                <li>
+                     <div class="skill-level basics">
+                         <span class="skill-name">AJAX - Basics</span>
+                     </div>
+                </li>
             </ul>
         </div>
 
          <div class="section">
             <h2>Languages</h2>
             <ul class="skills-list">
-                <li>Czech - Expert (C2) [cite: 1]</li>
-                <li>English - Absolute beginner (A1) [cite: 1]</li>
+                <li>
+                    <div class="skill-level advanced" style="width: 100%;"> <span class="skill-name">Czech - Expert (C2)</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="skill-level basics" style="width: 20%;"> <span class="skill-name">English - Absolute beginner (A1)</span>
+                    </div>
+                </li>
             </ul>
         </div>
 
@@ -152,13 +330,13 @@
             <div class="experience-item">
                 <h3>Programmer</h3>
                 <p>Webdevel s.r.o, Ostrava, Czech Republic</p>
-                <p>Dec 2022 - Dec 2025 [cite: 4]</p>
-                <p>Worked on various projects on the Upgates platform, which combines technologies like Latte, Nette, HTML, JavaScript, AJAX, and CSS[cite: 4].</p>
+                <p>Dec 2022 - Dec 2025</p>
+                <p>Worked on various projects on the Upgates platform, which combines technologies like Latte, Nette, HTML, JavaScript, AJAX, and CSS.</p>
             </div>
             <div class="experience-item">
                 <h3>Junior Programmer</h3>
                 <p>Webdevel s.r.o, Ostrava, Czech Republic</p>
-                <p>Mar 2019 - Dec 2020 [cite: 5]</p>
+                <p>Mar 2019 - Dec 2020</p>
             </div>
         </div>
 
@@ -170,7 +348,7 @@
     </div>
 
     <footer>
-        <p>Contact: <a href="mailto:dominik.gombos@gmail.com">dominik.gombos@gmail.com</a> | Phone: +420605310612</p> [cite: 1]
+        <p>Contact: <a href="mailto:dominik.gombos@gmail.com">dominik.gombos@gmail.com</a> | Phone: +420605310612</p>
         <p>&copy; 2024 Dominik G. | Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
     </footer>
 </body>
