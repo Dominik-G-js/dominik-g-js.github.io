@@ -24,7 +24,7 @@
 
             /* Social icon colors */
             --instagram-color: #E1306C;
-            --tiktok-color: #69C9D0; /* Or #000 for logomark */
+            --tiktok-color: #000; /* Using black logomark color */
             --youtube-color: #FF0000;
             --icon-color-default: #555; /* Default color before hover */
         }
@@ -52,19 +52,19 @@
         header {
             background-color: var(--primary-color);
             color: #fff;
-            padding: 40px 20px; /* More padding */
+            padding: 40px 20px;
             text-align: center;
-            margin-bottom: 30px; /* More margin */
+            margin-bottom: 30px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         header h1 {
             margin: 0;
-            font-size: 3em; /* Larger font */
+            font-size: 3em;
             margin-bottom: 10px;
         }
         header p {
             margin-top: 5px;
-            font-size: 1.2em; /* Larger font */
+            font-size: 1.2em;
             opacity: 0.9;
         }
         .container {
@@ -91,7 +91,7 @@
         .section:nth-child(3) { animation-delay: 0.6s; }
         .section:nth-child(4) { animation-delay: 0.8s; }
         .section:nth-child(5) { animation-delay: 1.0s; }
-        .section:nth-child(6) { animation-delay: 1.2s; } /* Added delay for new section */
+        .section:nth-child(6) { animation-delay: 1.2s; }
 
 
         @keyframes sectionFadeIn {
@@ -116,10 +116,10 @@
             padding: 0;
         }
         .skills-list li {
-            margin-bottom: 15px; /* Increased margin */
-            position: relative; /* Needed for positioning name */
-            height: 35px; /* Increased height */
-            background-color: var(--bar-track-color); /* Track color */
+            margin-bottom: 15px;
+            position: relative;
+            height: 35px;
+            background-color: var(--bar-track-color);
             border-radius: 5px;
             overflow: hidden;
         }
@@ -132,9 +132,10 @@
             display: flex;
             align-items: center;
             font-weight: bold;
-            color: var(--text-color); /* Default text color */
-            z-index: 2; /* Above the fill bar */
+            color: var(--text-color);
+            z-index: 2;
             font-size: 1em;
+            /* Ensure text is above the fill bar visually */
         }
 
         .skill-bar-fill {
@@ -145,48 +146,43 @@
             top: 0;
             left: 0;
             transform-origin: left center;
-            transform: scaleX(0); /* Initial state for animation */
+            transform: scaleX(0);
             animation: fillSkillBar 1.5s ease-out forwards;
         }
 
-        /* Define fill widths and colors by level */
         .skill-bar-fill.advanced {
              background-color: var(--advanced-color);
-             width: 90%; /* Example width for Advanced */
-             animation-delay: 1.4s; /* Adjusted delay for skills */
+             width: 90%;
+             animation-delay: 1.4s;
         }
-
         .skill-bar-fill.intermediate {
              background-color: var(--intermediate-color);
-             width: 60%; /* Example width for Intermediate */
+             width: 60%;
              animation-delay: 1.5s;
         }
-
         .skill-bar-fill.basics {
              background-color: var(--basics-color);
-             width: 30%; /* Example width for Basics */
+             width: 30%;
              animation-delay: 1.6s;
         }
-         .skill-bar-fill.expert { /* Added for languages C2 */
-            background-color: var(--advanced-color); /* Use advanced color for Expert */
-            width: 100%; /* Expert is 100% */
+         .skill-bar-fill.expert {
+            background-color: var(--advanced-color);
+            width: 100%;
             animation-delay: 1.7s;
          }
 
-
         @keyframes fillSkillBar {
             to {
-                 transform: scaleX(1); /* Scales to the width set by the class */
+                 transform: scaleX(1);
             }
         }
 
-        /* Adjust text color for readability on colored bars */
-        .skill-bar-fill.advanced + .skill-name, /* Use adjacent sibling selector */
+        .skill-bar-fill.advanced + .skill-name,
         .skill-bar-fill.expert + .skill-name {
-            color: #fff; /* White text on dark blue */
+            color: #fff;
         }
          .skill-bar-fill.intermediate + .skill-name {
-             color: var(--text-color); /* Keep dark text on yellow */
+             color: var(--text-color);
          }
 
 
@@ -194,14 +190,14 @@
             margin-bottom: 20px;
             padding-bottom: 15px;
             border-bottom: 1px dashed var(--border-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
          .experience-item:last-child {
             border-bottom: none;
             padding-bottom: 0;
          }
          .experience-item:hover {
-            transform: translateY(-5px); /* Lift effect on hover */
+            transform: translateY(-5px);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
          }
 
@@ -239,52 +235,78 @@
             transform: translateY(-2px);
         }
 
-        /* Social Icons Styling */
+        /* Social Icons Styling - More Creative */
         .social-links {
             display: flex;
-            justify-content: center; /* Center icons */
-            gap: 25px; /* Space between icons */
-            margin-top: 20px;
+            justify-content: center;
+            gap: 30px; /* Increased space */
+            margin-top: 30px; /* Increased margin */
         }
 
         .social-link {
-            display: block; /* Make the link a block */
-            width: 50px; /* Size of the icon container */
-            height: 50px;
-            color: var(--icon-color-default); /* Default icon color */
-            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Animation for hover */
-             /* Initial state for entry animation */
+            display: flex; /* Use flex to center icon inside */
+            justify-content: center;
+            align-items: center;
+            width: 60px; /* Larger size */
+            height: 60px;
+            border-radius: 50%; /* Make them round */
+            background-color: var(--card-background); /* White background */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            color: var(--icon-color-default);
+            text-decoration: none; /* No underline */
+            transition: transform 0.4s ease-in-out, background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Smoother transitions */
+            position: relative; /* For potential future effects */
+
+            /* Initial state for entry animation */
             opacity: 0;
-            transform: scale(0.5);
-            animation: iconEntry 0.6s ease-out forwards;
+            transform: scale(0.3) translateY(20px);
+            animation: socialIconEntry 0.8s ease-out forwards;
         }
 
         /* Staggered animation for icons */
-        .social-link:nth-child(1) { animation-delay: 1.4s; } /* Adjust delays based on section delays */
+        .social-link:nth-child(1) { animation-delay: 1.4s; } /* Adjusted delay */
         .social-link:nth-child(2) { animation-delay: 1.5s; }
         .social-link:nth-child(3) { animation-delay: 1.6s; }
 
 
-        @keyframes iconEntry {
+         @keyframes socialIconEntry {
             to {
                 opacity: 1;
-                transform: scale(1);
+                transform: scale(1) translateY(0);
             }
         }
 
 
         .social-link:hover {
-             transform: scale(1.2); /* Enlarge on hover */
-        }
-        .social-link svg {
-            width: 100%;
-            height: 100%;
-            fill: currentColor; /* Make SVG color match the link's color */
+             transform: scale(1.1); /* Slight scale up */
+             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
         }
 
-        .social-link.instagram:hover { color: var(--instagram-color); }
-        .social-link.tiktok:hover { color: var(--tiktok-color); } /* Or #000 if you prefer */
-        .social-link.youtube:hover { color: var(--youtube-color); }
+        .social-link.instagram:hover {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #ee2d71 60%, #cc2366 90%); /* Instagram gradient */
+            color: #fff; /* White icon on gradient */
+        }
+        .social-link.tiktok:hover {
+            background-color: var(--tiktok-color); /* Black background */
+            color: #fff; /* White icon */
+             /* Optional: Add a subtle text shadow for the effect */
+             text-shadow: -1.5px -1.5px 0 #25F4EE, 1.5px 1.5px 0 #FF0050;
+        }
+         .social-link.tiktok:hover svg {
+             fill: #fff; /* Ensure SVG is white on black background */
+         }
+
+        .social-link.youtube:hover {
+            background-color: var(--youtube-color); /* Red background */
+            color: #fff; /* White icon */
+        }
+
+        .social-link svg {
+            width: 60%; /* Make SVG fill the container */
+            height: 60%;
+            fill: currentColor; /* Make SVG color match the link's color */
+            transition: fill 0.4s ease-in-out; /* Animate icon color */
+        }
 
 
         footer {
@@ -328,14 +350,14 @@
                 padding: 10px 20px;
              }
              .skill-name {
-                font-size: 0.9em; /* Slightly smaller font */
+                font-size: 0.9em;
              }
              .social-links {
-                gap: 15px; /* Less space on small screens */
+                gap: 15px;
              }
              .social-link {
-                width: 40px; /* Smaller icons */
-                height: 40px;
+                width: 50px; /* Slightly smaller */
+                height: 50px;
              }
         }
     </style>
@@ -404,10 +426,12 @@
             <ul class="skills-list">
                 <li>
                     <span class="skill-name">Czech - Expert (C2)</span>
-                    <div class="skill-bar-fill expert"></div> </li>
+                    <div class="skill-bar-fill expert"></div>
+                </li>
                 <li>
                     <span class="skill-name">English - Absolute beginner (A1)</span>
-                    <div class="skill-bar-fill basics" style="width: 20%;"></div> </li>
+                    <div class="skill-bar-fill basics" style="width: 20%;"></div>
+                </li>
             </ul>
         </div>
 
@@ -434,10 +458,10 @@
             </p>
             <div class="social-links">
                 <a href="https://www.instagram.com/memetiktokcz/" target="_blank" class="social-link instagram" aria-label="Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0-14.9-12-26.8-26.8-26.8-14.9 0-26.8 12-26.8 26.8 0 14.9 12 26.8 26.8 26.8 14.8 0 26.8-12 26.8-26.8zm76.1-27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-35.9-2.3-107.1-2.3-143 0-35.9 1.7-67.7 9.9-93.9 36.2-26.2 26.2-34.4 58-36.2 93.9-2.3 35.9-2.3 107.1 0 143 1.7 35.9 9.9 67.7 36.2 93.9 26.2 26.2 58 34.4 93.9 36.2 35.9 2.3 107.1 2.3 143 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.3-35.9 2.3-107.1 0-143zM401 401c-20.4 20.4-47.7 32.2-77.3 34.1-34.5 2.5-105.7 2.5-140.2 0-29.6-1.9-56.9-13.7-77.3-34.1-20.4-20.4-32.2-47.7-34.1-77.3-2.5-34.5-2.5-105.7 0-140.2 1.9-29.6 13.7-56.9 34.1-77.3 20.4-20.4 47.7-32.2 77.3-34.1 34.5-2.5 105.7-2.5 140.2 0 29.6 1.9 56.9 13.7 77.3 34.1 20.4 20.4 32.2 47.7 34.1 77.3 2.5 34.5 2.5 105.7 0 140.2-1.9 29.6-13.7 56.9-34.1 77.3z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0-14.9-12-26.8-26.8-26.8-14.9 0-26.8 12-26.8 26.8 0 14.9 12 26.8 26.8 26.8 14.8 0 26.8-12 26.8-26.8zm76.1-27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-35.9-2.3-107.1-2.3-143 0-35.9 1.7-67.7 9.9-93.9 36.2-26.2 26.2-58 34.4-36.2 93.9-2.3 35.9-2.3 107.1 0 143 1.7 35.9 9.9 67.7 36.2 93.9 26.2 26.2 58 34.4 93.9 36.2 35.9 2.3 107.1 2.3 143 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.3-35.9 2.3-107.1 0-143zM401 401c-20.4 20.4-47.7 32.2-77.3 34.1-34.5 2.5-105.7 2.5-140.2 0-29.6-1.9-56.9-13.7-77.3-34.1-20.4-20.4-32.2-47.7-34.1-77.3-2.5-34.5-2.5-105.7 0-140.2 1.9-29.6 13.7-56.9 34.1-77.3 20.4-20.4 47.7-32.2 77.3-34.1 34.5-2.5 105.7-2.5 140.2 0 29.6 1.9 56.9 13.7 77.3 34.1 20.4 20.4 32.2 47.7 34.1 77.3 2.5 34.5 2.5 105.7 0 140.2-1.9 29.6-13.7 56.9-34.1 77.3z"/></svg>
                 </a>
                 <a href="https://www.tiktok.com/@memetiktokcz" target="_blank" class="social-link tiktok" aria-label="TikTok">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1 -122.8,151.92T192,359.7c-18.58,0-37.15-.65-55.74-1.94C114.3,354.22,101.4,347.54,101.4,335.13V199.38c0-12.64,13.39-19.4,22.52-15.78q9.21,3.6,14.71,9.27c12.93,13.47,22.38,25.13,35,39.05c16.34,17.42,30.63,35.62,49.63,50.73c3.4,2.78,6.61,6.16,9.81,9.5l3.46,3.4c12.22,12.45,25,21.07,40.34,23.09c8.48,1.12,16.61,.66,24.75-1.8C357.9,328.42,376.48,310.7,383,289.34c1.48-4.78,4.26-14.25,4.81-16.6c4.6-21.07,14.06-41.61,24.51-61.65c10.44-20,21.17-40,36.72-56.12c12.86-13.33,25.47-28.36,31-45.4a33.45,33.45,0,0,0,.42-3.52c-.1-1.48-.24-2.13-.45-3a8.14,8.14,0,0,0-1.31-3.12A3.77,3.77,0,0,0,443.71,82c-1.27-1.14-2.1-1.48-3.27-1.48H409.14c-9.71,0-16.71,7.1-17.1,16.77-1.53,36.56-7.4,65-14.9,81.55c-11.73,25.42-28,50.78-49.54,70.18a178,178,0,0,1-28.81,22.3L288,273.17c-21.27-18.56-37.8-37-50.06-50.84q-2.83-3-5.81-5.93L220,213c-16.23-16.58-28.19-34.28-39-50.52-12.71-19.4-22.4-37.58-27.6-56.15a23.69,23.69,0,0,1-2.56-7.65C145.15,98.4,144,96.52,144,94.79a23.94,23.94,0,0,1,2.51-7.58c5.51-17,15.2-35.19,26.91-54.17Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1 -122.8,151.92T192,359.7c-18.58,0-37.15-.65-55.74-1.94C114.3,354.22,101.4,347.54,101.4,335.13V199.38c0-12.64,13.39-19.4,22.52-15.78q9.21,3.6,14.71,9.27c12.93,13.47,22.38,25.13,35,39.05c16.34,17.42,30.63,35.62,49.63,50.73c3.4,2.78,6.61,6.16,9.81,9.5l3.46,3.4c12.22,12.45,25,21.07,40.34,23.09c8.48,1.12,16.61,.66,24.75-1.8C357.9,328.42,376.48,310.7,383,289.34c1.48-4.78,4.26-14.25,4.81-16.6c4.6-21.07,14.06-41.61,24.51-61.65c10.44-20,21.17-40,36.72-56.12c12.86-13.33,25.47-28.36,31-45.4a33.45,33.45,0,0,0,.42-3.52c-.1-1.48-.24-2.13-.45-3a8.14,8.14,0,0,0-1.31-3.12A3.77,3.77,0,0,0,443.71,82c-1.27-1.14-2.1-1.48-3.27-1.48H409.14c-9.71,0-16.71,7.1-17.1,16.77-1.53,36.56-7.4,65-14.9,81.55c-11.73,25.42-28,50.78-49.54,70.18a178,178,0,0,1-28.81,22.3L288,273.17c-21.27-18.56-37.8-37-50.06-50.84q-2.83-3-5.81-5.93L220,213c-16.23-16.58-28.19-34.28-39-50.52c-12.71-19.4-22.4-37.58-27.6-56.15a23.69,23.69,0,0,1-2.56-7.65C145.15,98.4,144,96.52,144,94.79a23.94,23.94,0,0,1,2.51-7.58c5.51-17,15.2-35.19,26.91-54.17Z"/></svg>
                 </a>
                 <a href="https://www.youtube.com/@memetiktokcz" target="_blank" class="social-link youtube" aria-label="YouTube">
                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.156-48.437-48.437C458.067 64 288 64 288 64S117.933 64 74.785 75.646c-23.65 6.281-42.156 24.787-48.437 48.437C0 160.171 0 256 0 256s0 95.829 6.348 131.917c6.281 23.65 24.787 41.5 48.437 47.781C117.933 448 288 448 288 448s170.067 0 213.315-11.646c23.65-6.281 41.5-24.787 47.781-48.437C576 351.829 576 256 576 256s0-95.829-6.345-131.917zm-216.023 144L249 357.408V154.592z"/></svg>
@@ -457,7 +481,7 @@
 
     <footer>
         <p>Contact: <a href="mailto:dominik.gombos@gmail.com">dominik.gombos@gmail.com</a> | Phone: +420605310612</p>
-        <p>&copy; 2025 Dominik G. | Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
+        <p>© 2025 Dominik G. | Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
     </footer>
 </body>
 </html>
