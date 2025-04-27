@@ -12,8 +12,9 @@
             --monster-green: #99FF00; /* Vibrant Neon Green */
             --monster-dark-grey: #1a1a1a; /* Deep Grey/Near Black */
             --monster-black: #000000; /* Pure Black */
-            --monster-light-grey: #cccccc; /* Light Grey for text */
+            --monster-light-grey: #eeeeee; /* Very Light Grey for text */
             --monster-mid-grey: #555555; /* Mid Grey for elements */
+             --monster-section-bg: #282828; /* Slightly lighter dark for sections */
         }
 
         /* ==== RESET & BASE ==== */
@@ -21,102 +22,117 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Open Sans', sans-serif;
-            line-height: 1.7;
-            background: var(--monster-dark-grey); /* Dark background */
-            color: var(--monster-light-grey); /* Light text color */
+            line-height: 1.8; /* Slightly more line height for readability */
+            background: var(--monster-dark-grey);
+            color: var(--monster-light-grey);
         }
         h1, h2, h3 {
             font-family: 'Roboto', sans-serif;
             font-weight: 700;
-            color: var(--monster-green); /* Headings in Monster Green */
+            color: var(--monster-green);
         }
         a { color: inherit; text-decoration: none; }
 
         /* ==== SKIP LINK ==== */
         .skip-link {
             position: absolute; top: -40px; left: 0;
-            background: var(--monster-green); /* Green background */
-            color: var(--monster-black); /* Black text */
-            padding: 8px 16px;
-            z-index: 100; transition: top .3s;
-            outline: 3px solid var(--monster-light-grey); /* Visible outline */
-            outline-offset: 2px;
+            background: var(--monster-green);
+            color: var(--monster-black);
+            padding: 10px 20px; /* More padding */
+            z-index: 100; transition: top .3s ease-in-out;
+            outline: 3px solid var(--monster-light-grey);
+            outline-offset: 3px; /* More offset */
             font-weight: 600;
+             letter-spacing: 0.5px;
+             text-transform: uppercase;
         }
         .skip-link:focus { top: 0; }
 
         /* ==== HEADER & NAV ==== */
         header {
-            background: linear-gradient(to right, var(--monster-black), var(--monster-dark-grey)); /* Dark gradient */
-            color: var(--monster-light-grey); /* Light text */
+            background: linear-gradient(to bottom, var(--monster-black), var(--monster-dark-grey)); /* Gradient direction changed */
+            color: var(--monster-light-grey);
             text-align: center;
-            padding: 80px 20px 60px; /* More padding */
+            padding: 90px 20px 70px; /* More padding */
             position: relative;
             overflow: hidden;
-            border-bottom: 3px solid var(--monster-green); /* Green bottom border */
+            border-bottom: 4px solid var(--monster-green); /* Thicker green border */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5); /* Added shadow to header */
         }
         header h1 {
-            font-size: 4.5em; /* Larger heading */
+            font-size: 5em; /* Even larger heading */
             font-weight: 700;
             margin-bottom: 15px;
-            color: var(--monster-green); /* Green heading */
-            text-shadow: 0 0 15px rgba(153, 255, 0, 0.6); /* Neon glow effect */
+            color: var(--monster-green);
+            text-shadow: 0 0 20px rgba(153, 255, 0, 0.8); /* More pronounced neon glow */
             position: relative; z-index: 2;
         }
         header p {
-            font-size: 1.5em; /* Larger tagline */
-            font-weight: 400; /* Slightly lighter weight */
-            color: var(--monster-light-grey); /* Light grey tagline */
+            font-size: 1.6em; /* Larger tagline */
+            font-weight: 400;
+            color: var(--monster-light-grey);
             opacity: 1;
             position: relative; z-index: 2;
         }
         nav {
-            background: var(--monster-black); /* Black background */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.4); /* Darker shadow */
+            background: var(--monster-black);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* More prominent shadow */
+            position: sticky; /* Sticky nav */
+            top: 0;
+            z-index: 50; /* Ensure nav stays on top */
         }
-        nav ul { display: flex; justify-content: center; flex-wrap: wrap; list-style: none; padding: 15px 0; /* More vertical padding */ }
-        nav li { margin: 10px 25px; /* Adjusted margin */ }
+        nav ul { display: flex; justify-content: center; flex-wrap: wrap; list-style: none; padding: 18px 0; /* More vertical padding */ }
+        nav li { margin: 10px 30px; /* Increased margin */ }
         nav a {
-            color: var(--monster-light-grey); /* Light grey link color */
+            color: var(--monster-light-grey);
             font-weight: 500;
-            padding: 8px 0; /* More padding for hover area */
-            transition: color .3s ease-in-out, text-shadow .3s ease-in-out; /* Transition for color and shadow */
+            padding: 8px 0;
+            transition: color .3s ease-in-out, text-shadow .3s ease-in-out, transform .2s ease-out; /* Added transform for slight lift */
             text-shadow: none;
+            letter-spacing: 0.5px;
         }
         nav a:hover,
         nav a:focus {
-            color: var(--monster-green); /* Green on hover/focus */
-            text-shadow: 0 0 8px rgba(153, 255, 0, 0.8); /* Green glow on hover/focus */
+            color: var(--monster-green);
+            text-shadow: 0 0 10px rgba(153, 255, 0, 0.9); /* Stronger green glow */
             outline: none;
+            transform: translateY(-2px); /* Slight lift on hover/focus */
         }
 
 
         /* ==== CONTAINER ==== */
-        .container { max-width: 1000px; margin: 60px auto; padding: 0 25px; } /* More margin and padding */
+        .container { max-width: 1100px; margin: 70px auto; padding: 0 30px; } /* Wider container, more margin/padding */
         section {
-            background: #2a2a2a; /* Dark grey background for sections */
-            padding: 40px 50px; /* More horizontal padding */
-            margin-bottom: 60px; /* More space between sections */
-            border-radius: 12px; /* More rounded corners */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle dark shadow */
+            background: var(--monster-section-bg); /* Dark background for sections */
+            padding: 50px 60px; /* More padding */
+            margin-bottom: 70px; /* More space between sections */
+            border-radius: 16px; /* More rounded corners */
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.6); /* Deeper shadow */
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity .8s ease-out, transform .8s ease-out;
-            border: 1px solid rgba(var(--monster-green), 0.1); /* Subtle green border */
+            transform: translateY(50px); /* More pronounced initial translation */
+            transition: opacity .9s ease-out, transform .9s ease-out, box-shadow .3s ease-in-out; /* Slower reveal, transition for box-shadow */
+            border: 1px solid rgba(var(--monster-green), 0.2); /* Subtle green border */
+            position: relative; /* For potential inner elements */
         }
+         /* Section hover glow */
+         section:hover {
+             box-shadow: 0 0 40px rgba(153, 255, 0, 0.4); /* Green glow on hover */
+         }
         section.visible { opacity: 1; transform: translateY(0); }
 
         section h2 {
-            color: var(--monster-green); /* Green heading */
-            border-bottom: 2px solid var(--monster-green); /* Green underline */
-            padding-bottom: 20px;
-            margin-bottom: 35px;
-            font-size: 2.5em; /* Larger section headings */
-            text-shadow: 0 0 10px rgba(153, 255, 0, 0.4); /* Subtle green glow */
+            color: var(--monster-green);
+            border-bottom: 2px solid var(--monster-green);
+            padding-bottom: 25px; /* More padding below heading */
+            margin-bottom: 40px; /* More space below heading */
+            font-size: 2.8em; /* Larger section headings */
+            text-shadow: 0 0 12px rgba(153, 255, 0, 0.5); /* Subtle green glow */
         }
         section p {
-            color: var(--monster-light-grey); /* Light grey text */
-            margin-bottom: 15px; /* More space between paragraphs */
+            color: var(--monster-light-grey);
+            margin-bottom: 18px; /* More space between paragraphs */
+            font-size: 1.15em; /* Slightly larger body text */
+             line-height: 1.8;
         }
          section p:last-child { margin-bottom: 0; }
 
@@ -124,192 +140,241 @@
         /* ==== SKILLS ==== */
         .skills-list { list-style: none; }
         .skills-list li {
-            margin-bottom: 20px;
+            margin-bottom: 22px; /* More space */
             position: relative;
-            height: 40px;
-            background: var(--monster-mid-grey); /* Mid-grey background bar */
-            border-radius: 8px;
+            height: 45px; /* Taller bars */
+            background: var(--monster-mid-grey);
+            border-radius: 10px; /* More rounded */
             overflow: hidden;
-            box-shadow: inset 0 1px 4px rgba(0,0,0,0.3);
-            border: 1px solid rgba(var(--monster-green), 0.1); /* Subtle green border */
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.4); /* Deeper inner shadow */
+            border: 1px solid rgba(var(--monster-green), 0.15);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add hover transition */
         }
+         .skills-list li:hover {
+             transform: scale(1.02); /* Slight scale up on hover */
+             box-shadow: 0 0 15px rgba(153, 255, 0, 0.3); /* Green glow on hover */
+         }
         .skill-name {
-             position: absolute; left: 20px; top: 0; height: 100%; display: flex; align-items: center;
+             position: absolute; left: 25px; top: 0; height: 100%; display: flex; align-items: center;
              font-weight: 600;
              z-index: 2;
-             color: var(--monster-black); /* Black text for maximum contrast on green */
-             text-shadow: 0 0 8px rgba(255,255,255,0.8); /* Stronger white text shadow */
+             color: var(--monster-black);
+             text-shadow: 0 0 10px rgba(255,255,255,0.9); /* Stronger white text shadow */
+             font-size: 1.1em; /* Slightly larger skill name text */
              transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
         }
          .skills-list li:hover .skill-name {
-             color: var(--monster-black); /* Keep black */
-             text-shadow: 0 0 10px rgba(255,255,255,1); /* More pronounced shadow on hover */
+             color: var(--monster-black);
+             text-shadow: 0 0 12px rgba(255,255,255,1);
          }
 
         .skill-bar-fill {
-            position: absolute; top:0; left:0; height:100%; width:0; border-radius: 8px;
-            transform-origin: left center; transition: width 1.8s cubic-bezier(0.25, 1, 0.5, 1);
-            box-shadow: inset 0 -3px 6px rgba(0,0,0,0.5);
-            background: linear-gradient(to right, var(--monster-green), #77CC00); /* Green gradient fill */
+            position: absolute; top:0; left:0; height:100%; width:0; border-radius: 10px;
+            transform-origin: left center; transition: width 2s cubic-bezier(0.42, 0, 0.58, 1); /* Slower, different easing */
+            box-shadow: inset 0 -4px 8px rgba(0,0,0,0.6); /* Deeper inner shadow */
+            background: linear-gradient(to right, var(--monster-green), #77CC00);
         }
-        /* No need for different colors/gradients for levels if using one fill color */
-        /* The level is represented by the width */
 
 
         /* ==== EXPERIENCE ==== */
         .experience-item {
-            margin-bottom: 35px;
-            padding-bottom: 30px;
-            border-bottom: 1px dashed var(--monster-mid-grey); /* Mid-grey dashed line */
-            transition: transform .5s ease-in-out, box-shadow .5s ease-in-out, background-color .3s ease-in-out, padding-left .5s ease-in-out; /* Added padding-left transition */
+            margin-bottom: 40px; /* More space */
+            padding-bottom: 35px; /* More padding */
+            border-bottom: 1px dashed var(--monster-mid-grey);
+            transition: transform .6s ease-in-out, box-shadow .6s ease-in-out, background-color .4s ease-in-out, padding-left .6s ease-in-out; /* Slower transitions */
             cursor: pointer;
-            padding-left: 15px;
+            padding-left: 20px; /* Initial slight left padding */
             background-color: transparent;
+            border-left: 3px solid transparent; /* Subtle left border */
         }
         .experience-item:last-child { border: none; padding-bottom:0; margin-bottom: 0; }
         .experience-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(153, 255, 0, 0.2); /* Green glow shadow */
-            background-color: rgba(153, 255, 0, 0.05); /* Subtle green background tint on hover */
-            padding-left: 30px; /* More increased left padding on hover */
+            transform: translateY(-12px); /* More lift */
+            box-shadow: 0 18px 40px rgba(153, 255, 0, 0.3); /* More prominent green glow shadow */
+            background-color: rgba(153, 255, 0, 0.08); /* Slightly more visible green background tint */
+            padding-left: 40px; /* More increased left padding on hover */
+            border-left-color: var(--monster-green); /* Green border on hover */
         }
-        .experience-item h3 { font-size:1.5em; color:var(--monster-green); font-weight:700; margin-bottom: 8px; } /* Green heading */
-        .experience-item p { margin:5px 0; color:var(--monster-light-grey); font-size: 1.1em; } /* Light grey text */
-        .experience-item p:first-of-type { font-weight: 600; color: var(--monster-light-grey); } /* Keep bold and light grey */
+        .experience-item h3 { font-size:1.6em; color:var(--monster-green); font-weight:700; margin-bottom: 10px; } /* Larger heading */
+        .experience-item p { margin:6px 0; color:var(--monster-light-grey); font-size: 1.15em; } /* Larger text */
+        .experience-item p:first-of-type { font-weight: 600; color: var(--monster-light-grey); }
 
         /* ==== BUTTON ==== */
         .button-link {
-            display:inline-block; margin-top:35px; padding:16px 40px;
-            background: linear-gradient(to right, var(--monster-green), #77CC00); /* Green gradient */
-            color: var(--monster-black); /* Black text */
+            display:inline-block; margin-top:40px; padding:18px 45px; /* More padding */
+            background: linear-gradient(to right, var(--monster-green), #77CC00);
+            color: var(--monster-black);
             border: none;
-            border-radius: 8px;
-            font-size: 1.2em;
-            font-weight: 600;
+            border-radius: 10px; /* More rounded */
+            font-size: 1.3em; /* Larger font */
+            font-weight: 700; /* Bolder */
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px; /* More letter spacing */
             transition: background .5s ease-in-out, transform .3s ease-out, box-shadow .3s ease-out;
-            box-shadow: 0 5px 15px rgba(153, 255, 0, 0.3); /* Green shadow */
+            box-shadow: 0 6px 20px rgba(153, 255, 0, 0.4); /* Green shadow */
             outline: none;
             cursor: pointer;
             position: relative; z-index: 1;
+            overflow: hidden; /* For potential ripple effect */
         }
+        /* Optional: Add a simple hover state that changes gradient direction */
+        /*
         .button-link:hover,
         .button-link:focus {
-            background: linear-gradient(to right, #77CC00, #66BB00); /* Darker green gradient on hover/focus */
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(153, 255, 0, 0.5); /* More prominent green shadow */
+            background: linear-gradient(to left, var(--monster-green), #77CC00); /* Reverse gradient on hover */
+        }
+        */
+        .button-link:hover,
+        .button-link:focus {
+             background: linear-gradient(to right, #77CC00, #66BB00);
+            transform: translateY(-6px); /* More lift */
+            box-shadow: 0 10px 25px rgba(153, 255, 0, 0.6); /* More prominent green shadow */
         }
 
 
         /* ==== SOCIAL ==== */
-        .social-links { display:flex; justify-content:center; gap:45px; margin-top:45px; }
+        .social-links { display:flex; justify-content:center; gap:50px; margin-top:50px; } /* Increased gap and margin */
         .social-link {
-            width:70px; height:70px;
+            width:75px; height:75px; /* Larger icons */
             border-radius:50%;
-            background: #3a3a3a; /* Darker grey background */
-            box-shadow:0 6px 20px rgba(0,0,0,.3);
+            background: #3a3a3a;
+            box-shadow:0 8px 25px rgba(0,0,0,.4); /* Deeper shadow */
             display:flex; align-items:center; justify-content:center;
-            transition: transform .6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow .6s ease-in-out;
-            color: var(--monster-light-grey); /* Light grey icon color */
+            transition: transform .7s cubic-bezier(0.25, 1, 0.5, 1), box-shadow .7s ease-in-out; /* Slower, bouncier transition */
+            color: var(--monster-light-grey);
             position: relative; z-index: 1;
+             border: 2px solid transparent; /* Border for hover effect */
         }
-        .social-link svg { width: 36px; height: 36px; fill: currentColor; /* Ensure SVG uses parent color */ }
+        .social-link svg { width: 40px; height: 40px; fill: currentColor; /* Larger icons */ }
 
         .social-link:hover {
-            transform: scale(1.3) rotate(8deg);
-            box-shadow:0 15px 40px rgba(153, 255, 0, 0.4); /* Stronger green glow shadow */
-            background: rgba(153, 255, 0, 0.1); /* Very subtle green background tint */
+            transform: scale(1.4) rotate(10deg); /* More pronounced effect */
+            box-shadow:0 20px 50px rgba(153, 255, 0, 0.5); /* Stronger green glow shadow */
+            background: rgba(153, 255, 0, 0.15); /* Slightly more visible green background tint */
+             border-color: var(--monster-green); /* Green border on hover */
         }
         /* Specific hover colors remain for brand identity */
-        .social-link.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%,#fbd3a8 5%,#fd5949 45%,#cc2366 90%,#bc1888 100%); color:#fff; }
-        .social-link.tiktok:hover { background:var(--monster-black); color:#fff; text-shadow:-2px -2px 0 #25F4EE,2px 2px 0 #FF0050; }
-        .social-link.youtube:hover { background:#FF0000; color:#fff; }
-         .social-link.linkedin:hover { background: #0e76a8; color: #fff; }
-         .social-link.github:hover { background: var(--monster-black); color: var(--monster-green); /* GitHub hover matching theme */ }
+        .social-link.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%,#fbd3a8 5%,#fd5949 45%,#cc2366 90%,#bc1888 100%); color:#fff; border-color: transparent; /* Use default border */ }
+        .social-link.tiktok:hover { background:var(--monster-black); color:#fff; text-shadow:-3px -3px 0 #25F4EE,3px 3px 0 #FF0050; border-color: transparent; } /* More text shadow */
+        .social-link.youtube:hover { background:#FF0000; color:#fff; border-color: transparent; }
+         .social-link.linkedin:hover { background: #0e76a8; color: #fff; border-color: transparent; }
+         .social-link.github:hover { background: var(--monster-black); color: var(--monster-green); border-color: var(--monster-green); } /* GitHub hover matching theme */
 
 
         /* ==== FOOTER ==== */
         footer {
-            text-align:center; padding:50px 20px;
-            background: var(--monster-black); /* Black background */
-            color: var(--monster-light-grey); /* Light grey text */
-            font-size:1em;
-            border-top: 3px solid var(--monster-green); /* Green top border */
+            text-align:center; padding:60px 20px; /* More padding */
+            background: var(--monster-black);
+            color: var(--monster-light-grey);
+            font-size:1.05em; /* Slightly larger footer text */
+            border-top: 4px solid var(--monster-green); /* Thicker green border */
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.5); /* Shadow above footer */
         }
-        footer p { margin: 10px 0; }
+        footer p { margin: 12px 0; } /* More space */
         footer a {
-            color: var(--monster-green); /* Green links */
+            color: var(--monster-green);
             transition: color .3s ease-in-out, text-shadow .3s ease-in-out;
             text-shadow: none;
         }
         footer a:hover {
             color: var(--monster-green);
             text-decoration: underline;
-             text-shadow: 0 0 8px rgba(153, 255, 0, 0.8); /* Green glow on hover */
+             text-shadow: 0 0 10px rgba(153, 255, 0, 0.9); /* Stronger green glow */
         }
 
         /* ==== RESPONSIVE ==== */
-        @media(max-width:992px){
-            .container { padding: 0 20px; }
-            section { padding: 35px 40px; margin-bottom: 50px; }
-             section h2 { font-size: 2.2em; margin-bottom: 30px; }
-             .skills-list li { height: 38px; margin-bottom: 18px; }
-             .skill-name { left: 18px; }
-             .experience-item { padding-left: 10px; margin-bottom: 30px; padding-bottom: 25px; }
-             .experience-item:hover { padding-left: 25px; transform: translateY(-8px); }
-             .button-link { padding: 14px 35px; font-size: 1.1em; margin-top: 30px; }
-             .social-links { gap: 35px; margin-top: 40px; }
-             .social-link { width: 65px; height: 65px; }
-             .social-link svg { width: 32px; height: 32px; }
-             .social-link:hover { transform: scale(1.25) rotate(6deg); }
-             footer { padding: 40px 20px; }
+        @media(max-width:1199px){ /* Adjustments for slightly smaller desktops/laptops */
+            .container { max-width: 960px; padding: 0 25px; }
+             section { padding: 45px 50px; margin-bottom: 60px; border-radius: 14px; }
+             section h2 { font-size: 2.6em; margin-bottom: 35px; }
+             .skills-list li { height: 42px; margin-bottom: 20px; border-radius: 9px;}
+             .skill-name { left: 22px; font-size: 1.05em; }
+             .skill-bar-fill { border-radius: 9px; }
+             .experience-item { padding-left: 15px; margin-bottom: 35px; padding-bottom: 30px; }
+             .experience-item:hover { padding-left: 35px; transform: translateY(-10px); }
+             .experience-item h3 { font-size: 1.55em; }
+             .experience-item p { font-size: 1.1em; }
+             .button-link { padding: 16px 40px; font-size: 1.2em; margin-top: 35px; border-radius: 9px; }
+             .social-links { gap: 45px; margin-top: 45px; }
+             .social-link { width: 70px; height: 70px; }
+             .social-link svg { width: 38px; height: 38px; }
+             .social-link:hover { transform: scale(1.35) rotate(9deg); }
         }
 
-        @media(max-width:768px){
-             header h1{font-size:3.5em; margin-bottom: 10px;}
+
+        @media(max-width:991px){ /* Tablet and smaller desktop */
+             header h1{font-size:4em; margin-bottom: 10px;}
+             header p{font-size:1.4em;}
+             nav ul { padding: 15px 0; }
+             nav li { margin: 8px 20px; }
+             nav a { padding: 5px 0; }
+             .container { padding: 0 20px; margin: 60px auto; }
+             section { padding: 40px; margin-bottom: 50px; border-radius: 12px; }
+             section h2 { font-size: 2.4em; margin-bottom: 35px; }
+             section p { font-size: 1.1em; line-height: 1.7; }
+             .skills-list li { height: 40px; margin-bottom: 18px; border-radius: 8px; }
+             .skill-name { left: 20px; font-size: 1.05em; }
+             .skill-bar-fill { border-radius: 8px; }
+             .experience-item { padding-left: 10px; margin-bottom: 30px; padding-bottom: 25px; }
+             .experience-item:hover { padding-left: 30px; transform: translateY(-8px); }
+             .experience-item h3 { font-size: 1.5em; }
+             .experience-item p { font-size: 1.05em; }
+             .button-link{padding:14px 35px; font-size: 1.1em; margin-top: 30px; border-radius: 8px;}
+             .social-links { gap: 35px; margin-top: 40px; }
+             .social-link { width: 65px; height: 65px; }
+             .social-link svg { width: 35px; height: 35px; }
+             .social-link:hover { transform: scale(1.25) rotate(6deg); }
+             footer { padding: 50px 20px; font-size: 1em; border-top-width: 3px; }
+        }
+
+        @media(max-width:767px){ /* Mobile large */
+             header h1{font-size:3.5em; text-shadow: 0 0 15px rgba(153, 255, 0, 0.7);}
              header p{font-size:1.3em;}
              nav ul { flex-direction: column; align-items: center; padding: 10px 0; }
              nav li { margin: 5px 0; }
              nav a { padding: 5px 0; }
-             section { padding: 30px; margin-bottom: 40px; }
-             section h2 { font-size: 2em; margin-bottom: 30px; }
-             .skills-list li { height: 35px; margin-bottom: 15px; }
-             .skill-name { left: 15px; font-size: 1em; text-shadow: 0 0 5px rgba(255,255,255,0.6); }
-             .experience-item { padding-left: 5px; margin-bottom: 25px; padding-bottom: 20px; }
-             .experience-item:hover { padding-left: 20px; transform: translateY(-5px); box-shadow: 0 8px 20px rgba(153, 255, 0, 0.15); }
-             .experience-item h3 { font-size: 1.4em; }
-             .experience-item p { font-size: 1em; }
-             .button-link{padding:12px 30px; font-size: 1em; margin-top: 25px;}
-             .social-links { gap: 30px; margin-top: 35px; }
+             .container { padding: 0 15px; margin: 50px auto; }
+             section { padding: 30px; margin-bottom: 40px; border-radius: 10px; }
+             section h2 { font-size: 2.2em; margin-bottom: 30px; text-shadow: 0 0 10px rgba(153, 255, 0, 0.4);}
+             section p { font-size: 1em; line-height: 1.6; }
+             .skills-list li { height: 38px; margin-bottom: 15px; border-radius: 7px; }
+             .skill-name { left: 15px; font-size: 1em; text-shadow: 0 0 6px rgba(255,255,255,0.7); }
+             .skill-bar-fill { border-radius: 7px; }
+             .experience-item { padding-left: 8px; margin-bottom: 25px; padding-bottom: 20px; border-left-width: 2px; }
+             .experience-item:hover { padding-left: 25px; transform: translateY(-6px); box-shadow: 0 10px 25px rgba(153, 255, 0, 0.2); }
+             .experience-item h3 { font-size: 1.4em; margin-bottom: 6px; }
+             .experience-item p { font-size: 0.95em; }
+             .button-link{padding:12px 30px; font-size: 1em; margin-top: 25px; border-radius: 7px;}
+             .social-links { gap: 25px; margin-top: 35px; }
              .social-link { width: 60px; height: 60px; box-shadow: 0 5px 15px rgba(0,0,0,.3); }
-             .social-link svg { width: 30px; height: 30px; }
-             .social-link:hover { transform: scale(1.2) rotate(5deg); box-shadow: 0 10px 25px rgba(153, 255, 0, 0.2); }
-             footer { padding: 40px 15px; font-size: 0.95em; border-top-width: 2px; }
+             .social-link svg { width: 32px; height: 32px; }
+             .social-link:hover { transform: scale(1.2) rotate(5deg); box-shadow: 0 12px 30px rgba(153, 255, 0, 0.3); }
+             footer { padding: 40px 15px; font-size: 0.9em; border-top-width: 3px; }
         }
-        @media(max-width:480px){
+        @media(max-width:479px){ /* Mobile small */
             header h1{font-size:2.8em; text-shadow: 0 0 10px rgba(153, 255, 0, 0.5);}
             header p{font-size:1.1em;}
             nav ul { padding: 5px 0; }
             nav li { margin: 3px 0; }
             nav a { padding: 3px 0; }
-            section { padding: 20px; margin-bottom: 30px; border-radius: 10px;}
-            section h2 { font-size: 1.8em; margin-bottom: 25px; text-shadow: 0 0 8px rgba(153, 255, 0, 0.3); }
-            .skills-list li{height: 30px; margin-bottom: 10px; border-radius: 6px;}
-            .skill-name { left: 10px; font-size: 0.9em; text-shadow: 0 0 5px rgba(255,255,255,0.5); }
+            .container { padding: 0 10px; margin: 40px auto; }
+            section { padding: 25px; margin-bottom: 30px; border-radius: 8px; }
+            section h2 { font-size: 2em; margin-bottom: 25px; text-shadow: 0 0 8px rgba(153, 255, 0, 0.3); }
+             section p { font-size: 0.95em; line-height: 1.5; }
+            .skills-list li{height: 35px; margin-bottom: 12px; border-radius: 6px;}
+            .skill-name { left: 10px; font-size: 0.95em; text-shadow: 0 0 5px rgba(255,255,255,0.5); }
             .skill-bar-fill { border-radius: 6px; }
-             .experience-item { padding-left: 0; margin-bottom: 20px; padding-bottom: 15px; }
-             .experience-item:hover { padding-left: 15px; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(153, 255, 0, 0.1); }
+             .experience-item { padding-left: 5px; margin-bottom: 20px; padding-bottom: 15px; border-left-width: 2px; }
+             .experience-item:hover { padding-left: 20px; transform: translateY(-5px); box-shadow: 0 8px 20px rgba(153, 255, 0, 0.15); }
              .experience-item h3 { font-size: 1.3em; margin-bottom: 5px; }
-             .experience-item p { font-size: 0.95em; }
+             .experience-item p { font-size: 0.9em; }
             .button-link{padding:10px 20px; font-size: 0.9em; margin-top: 20px; border-radius: 6px; box-shadow: 0 3px 10px rgba(153, 255, 0, 0.2);}
              .button-link:hover, .button-link:focus { box-shadow: 0 5px 15px rgba(153, 255, 0, 0.4); }
-            .social-links { gap: 20px; margin-top: 30px; }
-            .social-link { width: 50px; height: 50px; box-shadow: 0 3px 10px rgba(0,0,0,.3); }
-            .social-link svg { width: 26px; height: 26px; }
+            .social-links { gap: 15px; margin-top: 25px; flex-wrap: wrap; }
+            .social-link { width: 55px; height: 55px; box-shadow: 0 3px 10px rgba(0,0,0,.3); margin: 5px;} /* Added margin for wrapping */
+            .social-link svg { width: 28px; height: 28px; }
             .social-link:hover { transform: scale(1.15) rotate(3deg); box-shadow: 0 8px 20px rgba(153, 255, 0, 0.2); }
-             footer { padding: 30px 10px; font-size: 0.9em; }
-             footer p { margin: 5px 0; }
+             footer { padding: 30px 10px; font-size: 0.85em; border-top-width: 2px; }
         }
     </style>
 </head>
@@ -405,7 +470,7 @@
             <h2 id="resources-title">Development Resources</h2>
             <p style="text-align:center; margin-bottom:30px;">Access important links and resources related to my work, including Google AdMob, Play Console, and more.</p>
             <p style="text-align:center;"><a href="https://dominik-g-js.github.io/app-ads.txt" class="button-link" target="_blank" rel="noopener noreferrer">View app-ads.txt</a></p>
-             </section>
+             <p style="text-align:center; margin-top: 25px;"><a href="https://github.com/Dominik-G-js" class="button-link" target="_blank" rel="noopener noreferrer">View GitHub Profile</a></p> </section>
     </main>
 
     <footer role="contentinfo">
@@ -414,33 +479,45 @@
     </footer>
 
     <script>
-        // JavaScript for Scroll-Reveal Animation
-        const sections = document.querySelectorAll('section');
+        // JavaScript for Staggered Scroll-Reveal Animation
+        const sections = document.querySelectorAll('main section'); // Target sections within main
         const observerOptions = {
             root: null, // relative to viewport
             rootMargin: '0px',
-            threshold: 0.15 // Trigger when 15% of the section is visible
+            threshold: 0.1 // Trigger when 10% of the section is visible
         };
 
         const sectionObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    // Apply a staggered delay based on section index
+                    const sectionIndex = Array.from(sections).indexOf(entry.target);
+                    const delay = sectionIndex * 100; // 100ms delay per section
+
+                    setTimeout(() => {
+                         entry.target.classList.add('visible');
+                    }, delay);
+
                     // Stop observing once the section is visible
-                    // observer.unobserve(entry.target); // Uncomment if you only want it to appear once
-                } else {
-                    // Optional: remove 'visible' class when scrolling away to re-trigger on scroll back
-                    // entry.target.classList.remove('visible');
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
         sections.forEach(section => {
-             if (section.getBoundingClientRect().top < window.innerHeight) {
-                 section.classList.add('visible');
+             // Trigger immediately if already in viewport on load
+             if (section.getBoundingClientRect().top < window.innerHeight && section.getBoundingClientRect().bottom > 0) {
+                  const sectionIndex = Array.from(sections).indexOf(section);
+                  const delay = sectionIndex * 100;
+                  setTimeout(() => {
+                      section.classList.add('visible');
+                  }, delay);
+             } else {
+                // Otherwise, observe
+                sectionObserver.observe(section);
              }
-            sectionObserver.observe(section);
         });
+
 
         // JavaScript for Skill Bar Animation (Triggered on visibility)
         document.addEventListener('DOMContentLoaded', () => {
@@ -449,7 +526,7 @@
              const skillObserverOptions = {
                  root: null,
                  rootMargin: '0px',
-                 threshold: 0.7 // Trigger when 70% of the list item is visible
+                 threshold: 0.6 // Trigger when 60% of the list item is visible
              };
 
              const skillObserver = new IntersectionObserver((entries, observer) => {
@@ -458,7 +535,14 @@
                          const level = entry.target.getAttribute('data-level');
                          const bar = entry.target.querySelector('.skill-bar-fill');
                          if (level && bar) {
-                             bar.style.width = level + '%';
+                              // Apply a staggered delay based on skill item index within its list
+                             const listItemIndex = Array.from(entry.target.parentElement.children).indexOf(entry.target);
+                             const delay = listItemIndex * 50; // 50ms delay per skill item
+
+                             setTimeout(() => {
+                                bar.style.width = level + '%';
+                             }, delay + 200); // Add a base delay so it happens after section reveal
+
                          }
                          // Stop observing once animated
                          observer.unobserve(entry.target);
