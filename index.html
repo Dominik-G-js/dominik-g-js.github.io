@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dominik G. - Developer Portfolio</title>
+    <title>Dominik G. - Portfolio | Seeking JS/Web Developer Role</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -106,7 +106,7 @@
         .skill-level {
             display: block;
             height: 100%;
-            background-color: #28a745; /* Green fill color */
+            /* background-color: #28a745; /* Green fill color - default */ */
             border-radius: 5px;
             text-align: right;
             color: #fff;
@@ -121,23 +121,21 @@
         /* Define widths and colors for different skill levels */
         .skill-level.advanced {
              background-color: #007bff; /* Blue for advanced */
+             width: 90%; /* Example width */
              animation-delay: 1.2s; /* Stagger animation */
-             /* Final width handled by JS for dynamic content, but hardcoded for CSS-only example */
-             /* Let's use a simple class-based width for CSS-only */
         }
-         .skill-level.advanced .skill-name { width: 90%; } /* Example width */
 
         .skill-level.intermediate {
              background-color: #ffc107; /* Yellow for intermediate */
+             width: 60%; /* Example width */
              animation-delay: 1.3s;
         }
-         .skill-level.intermediate .skill-name { width: 60%; } /* Example width */
 
         .skill-level.basics {
              background-color: #6c757d; /* Gray for basics */
+             width: 30%; /* Example width */
              animation-delay: 1.4s;
         }
-         .skill-level.basics .skill-name { width: 30%; } /* Example width */
 
         .skill-level .skill-name {
             position: absolute;
@@ -154,8 +152,16 @@
 
         @keyframes fillSkillBar {
             to {
-                width: 100%; /* Fills the skill item container */
+                /* This animation is now applied to each skill-level element
+                   The final width is set by the .advanced, .intermediate, .basics classes */
+                /* This keyframe is just for the animation effect */
+                 transform: scaleX(1); /* Simple scale animation */
             }
+        }
+         /* Reset initial state for fill animation */
+        .skill-level {
+             transform-origin: left center;
+             transform: scaleX(0);
         }
 
 
@@ -242,21 +248,27 @@
              .button-link {
                 padding: 10px 20px;
              }
+             .skill-level .skill-name {
+                font-size: 0.8em; /* Smaller font on small screens */
+             }
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Dominik Gomboš</h1>
-        <p>Passionate Web, Application, and Game Developer</p>
+        <p>Developer Portfolio | Seeking Web/App Programming Role (2025)</p>
     </header>
 
     <div class="container">
         <div class="section">
             <h2>About Me</h2>
             <p>
-                Passionate programmer focusing on web development, applications, and games. I have over three years of experience in development, working on various projects within the Upgates platform, which combines technologies such as Latte, Nette, HTML, JavaScript, and AJAX. I am enthusiastic about learning new skills and discovering innovative ways to create attractive and functional digital products.
+                Welcome to my developer portfolio. I am a passionate programmer with over three years of experience focusing on web development, applications, and games. My background includes working on various projects within the Upgates platform, utilizing technologies such as Latte, Nette, HTML, JavaScript, and AJAX.
             </p>
+             <p>
+                I am currently seeking a programming position in 2025, particularly interested in roles involving JavaScript and web or application development. I am enthusiastic about learning new skills and discovering innovative ways to create attractive and functional digital products.
+             </p>
         </div>
 
         <div class="section">
@@ -349,7 +361,7 @@
 
     <footer>
         <p>Contact: <a href="mailto:dominik.gombos@gmail.com">dominik.gombos@gmail.com</a> | Phone: +420605310612</p>
-        <p>&copy; 2024 Dominik G. | Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
+        <p>&copy; 2025 Dominik G. | Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
     </footer>
 </body>
 </html>
