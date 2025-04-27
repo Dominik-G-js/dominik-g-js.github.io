@@ -6,13 +6,30 @@
     <title>Dominik G. - Portfolio | Seeking JS/Web Developer Role</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* Define colors as CSS variables for easier management */
+            --primary-color: #0056b3;
+            --secondary-color: #007bff;
+            --background-color: #eef2f7;
+            --card-background: #fff;
+            --text-color: #333;
+            --light-text-color: #666;
+            --border-color: #eee;
+
+            /* Skill bar colors */
+            --advanced-color: #007bff; /* Blue */
+            --intermediate-color: #ffc107; /* Yellow */
+            --basics-color: #6c757d; /* Gray */
+            --bar-track-color: #e9ecef; /* Light gray track */
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #eef2f7;
-            color: #333;
+            background-color: var(--background-color);
+            color: var(--text-color);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -27,20 +44,21 @@
         }
 
         header {
-            background-color: #0056b3;
+            background-color: var(--primary-color);
             color: #fff;
-            padding: 40px 20px; /* More padding */
+            padding: 40px 20px;
             text-align: center;
-            margin-bottom: 30px; /* More margin */
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         header h1 {
             margin: 0;
-            font-size: 3em; /* Larger font */
+            font-size: 3em;
             margin-bottom: 10px;
         }
         header p {
             margin-top: 5px;
-            font-size: 1.2em; /* Larger font */
+            font-size: 1.2em;
             opacity: 0.9;
         }
         .container {
@@ -48,17 +66,17 @@
             margin: 0 auto;
             padding: 0 20px;
             flex-grow: 1;
-            width: 100%; /* Ensure container uses full width */
-            box-sizing: border-box; /* Include padding in width */
+            width: 100%;
+            box-sizing: border-box;
         }
         .section {
-            background: #fff;
-            padding: 30px; /* More padding */
-            margin-bottom: 30px; /* More margin */
-            border-radius: 10px; /* More rounded corners */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Stronger shadow */
-            opacity: 0; /* Initial state for section fade-in */
-            transform: translateY(20px); /* Initial state for slide-up */
+            background: var(--card-background);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
             animation: sectionFadeIn 0.8s ease-out forwards;
         }
 
@@ -76,104 +94,109 @@
             }
         }
 
-
         .section h2 {
-            color: #0056b3;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 15px; /* More padding */
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 15px;
             margin-top: 0;
-            margin-bottom: 20px; /* More margin */
+            margin-bottom: 20px;
             font-size: 1.8em;
         }
 
-        /* Skill Bars Styling */
+        /* Skill Bar Refined Styling */
         .skills-list {
             list-style: none;
             padding: 0;
         }
         .skills-list li {
-            background-color: #e9ecef; /* Background for the bar track */
-            margin-bottom: 10px;
-            padding: 0;
+            margin-bottom: 15px; /* Increased margin */
+            position: relative; /* Needed for positioning name */
+            height: 35px; /* Increased height */
+            background-color: var(--bar-track-color); /* Track color */
             border-radius: 5px;
-            height: 25px; /* Height of the skill bar */
-            position: relative;
-            overflow: hidden; /* Hide overflowing background */
-            display: flex;
-            align-items: center;
+            overflow: hidden;
         }
 
-        .skill-level {
-            display: block;
+        .skill-name {
+            position: absolute;
+            top: 0;
+            left: 10px;
             height: 100%;
-            /* background-color: #28a745; /* Green fill color - default */ */
-            border-radius: 5px;
-            text-align: right;
-            color: #fff;
+            display: flex;
+            align-items: center;
             font-weight: bold;
-            line-height: 25px; /* Center text vertically */
-            padding-right: 10px;
-            box-sizing: border-box;
-            width: 0; /* Start with 0 width for animation */
+            color: var(--text-color); /* Default text color */
+            z-index: 2; /* Above the fill bar */
+            font-size: 1em;
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            border-radius: 5px;
+            width: 0; /* Start at 0 width for animation */
+            position: absolute;
+            top: 0;
+            left: 0;
             animation: fillSkillBar 1.5s ease-out forwards;
         }
 
-        /* Define widths and colors for different skill levels */
-        .skill-level.advanced {
-             background-color: #007bff; /* Blue for advanced */
-             width: 90%; /* Example width */
-             animation-delay: 1.2s; /* Stagger animation */
+        /* Define fill widths and colors by level */
+        .skill-bar-fill.advanced {
+             background-color: var(--advanced-color);
+             width: 90%; /* Example width for Advanced */
+             animation-delay: 1.2s;
         }
 
-        .skill-level.intermediate {
-             background-color: #ffc107; /* Yellow for intermediate */
-             width: 60%; /* Example width */
+        .skill-bar-fill.intermediate {
+             background-color: var(--intermediate-color);
+             width: 60%; /* Example width for Intermediate */
              animation-delay: 1.3s;
         }
 
-        .skill-level.basics {
-             background-color: #6c757d; /* Gray for basics */
-             width: 30%; /* Example width */
+        .skill-bar-fill.basics {
+             background-color: var(--basics-color);
+             width: 30%; /* Example width for Basics */
              animation-delay: 1.4s;
         }
-
-        .skill-level .skill-name {
-            position: absolute;
-            left: 10px;
-            color: #333; /* Text color */
-            font-weight: bold;
-            z-index: 1; /* Ensure text is above the fill */
-        }
-         .skill-level.advanced .skill-name,
-         .skill-level.intermediate .skill-name {
-            color: #fff; /* White text for darker backgrounds */
+         .skill-bar-fill.expert { /* Added for languages C2 */
+            background-color: var(--advanced-color); /* Use advanced color for Expert */
+            width: 100%; /* Expert is 100% */
+            animation-delay: 1.5s;
          }
 
 
         @keyframes fillSkillBar {
             to {
-                /* This animation is now applied to each skill-level element
-                   The final width is set by the .advanced, .intermediate, .basics classes */
-                /* This keyframe is just for the animation effect */
-                 transform: scaleX(1); /* Simple scale animation */
+                /* This keyframe just signals completion, the width is set by the class */
+                /* The animation animates FROM 0 to the set width */
             }
         }
-         /* Reset initial state for fill animation */
-        .skill-level {
-             transform-origin: left center;
-             transform: scaleX(0);
+
+        /* Adjust text color for readability on colored bars */
+        .skill-bar-fill.advanced .skill-name,
+        .skill-bar-fill.expert .skill-name {
+            color: #fff; /* White text on dark blue */
         }
+         .skill-bar-fill.intermediate .skill-name {
+             color: var(--text-color); /* Keep dark text on yellow */
+         }
 
 
         .experience-item {
-            margin-bottom: 20px; /* More margin */
+            margin-bottom: 20px;
             padding-bottom: 15px;
-            border-bottom: 1px dashed #eee;
+            border-bottom: 1px dashed var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition */
         }
          .experience-item:last-child {
             border-bottom: none;
             padding-bottom: 0;
          }
+         .experience-item:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+         }
+
 
         .experience-item h3 {
             margin: 0;
@@ -183,7 +206,7 @@
         .experience-item p {
             margin: 5px 0 0 0;
             font-size: 1em;
-            color: #666;
+            color: var(--light-text-color);
         }
          .experience-item p:last-child {
             font-size: 0.95em;
@@ -205,27 +228,27 @@
         }
         .button-link:hover {
             background-color: #218838;
-            transform: translateY(-2px); /* Simple hover animation */
+            transform: translateY(-2px);
         }
 
         footer {
-            margin-top: 40px; /* More margin */
+            margin-top: 40px;
             padding: 30px 20px;
             text-align: center;
             font-size: 0.95em;
-            color: #666;
+            color: var(--light-text-color);
             background-color: #f8f9fa;
             width: 100%;
             box-sizing: border-box;
         }
         footer a {
-             color: #007bff;
+             color: var(--secondary-color);
              text-decoration: none;
              transition: color 0.3s ease;
         }
          footer a:hover {
             text-decoration: underline;
-            color: #0056b3;
+            color: var(--primary-color);
         }
 
         /* Responsive adjustments */
@@ -248,8 +271,8 @@
              .button-link {
                 padding: 10px 20px;
              }
-             .skill-level .skill-name {
-                font-size: 0.8em; /* Smaller font on small screens */
+             .skill-name {
+                font-size: 0.9em; /* Slightly smaller font */
              }
         }
     </style>
@@ -275,49 +298,40 @@
             <h2>Skills</h2>
             <ul class="skills-list">
                 <li>
-                    <div class="skill-level advanced">
-                         <span class="skill-name">JavaScript - Advanced</span>
-                    </div>
+                    <span class="skill-name">JavaScript - Advanced</span>
+                    <div class="skill-bar-fill advanced"></div>
                 </li>
                 <li>
-                     <div class="skill-level advanced">
-                         <span class="skill-name">HTML - Advanced</span>
-                     </div>
+                     <span class="skill-name">HTML - Advanced</span>
+                     <div class="skill-bar-fill advanced"></div>
                 </li>
                 <li>
-                     <div class="skill-level intermediate">
-                         <span class="skill-name">CSS - Intermediate</span>
-                     </div>
+                     <span class="skill-name">CSS - Intermediate</span>
+                     <div class="skill-bar-fill intermediate"></div>
                 </li>
                  <li>
-                     <div class="skill-level advanced">
-                         <span class="skill-name">Python - Advanced</span>
-                     </div>
+                     <span class="skill-name">Python - Advanced</span>
+                     <div class="skill-bar-fill advanced"></div>
                  </li>
                   <li>
-                     <div class="skill-level advanced">
-                         <span class="skill-name">Microsoft Excel - Advanced</span>
-                     </div>
+                     <span class="skill-name">Microsoft Excel - Advanced</span>
+                     <div class="skill-bar-fill advanced"></div>
                  </li>
                   <li>
-                     <div class="skill-level advanced">
-                         <span class="skill-name">Microsoft Word - Advanced</span>
-                     </div>
+                     <span class="skill-name">Microsoft Word - Advanced</span>
+                     <div class="skill-bar-fill advanced"></div>
                  </li>
                 <li>
-                     <div class="skill-level basics">
-                          <span class="skill-name">PHP - Basics</span>
-                     </div>
+                     <span class="skill-name">PHP - Basics</span>
+                     <div class="skill-bar-fill basics"></div>
                 </li>
                 <li>
-                     <div class="skill-level basics">
-                         <span class="skill-name">Latte - Basics</span>
-                     </div>
+                     <span class="skill-name">Latte - Basics</span>
+                     <div class="skill-bar-fill basics"></div>
                  </li>
                 <li>
-                     <div class="skill-level basics">
-                         <span class="skill-name">AJAX - Basics</span>
-                     </div>
+                     <span class="skill-name">AJAX - Basics</span>
+                     <div class="skill-bar-fill basics"></div>
                 </li>
             </ul>
         </div>
@@ -326,13 +340,11 @@
             <h2>Languages</h2>
             <ul class="skills-list">
                 <li>
-                    <div class="skill-level advanced" style="width: 100%;"> <span class="skill-name">Czech - Expert (C2)</span>
-                    </div>
-                </li>
+                    <span class="skill-name">Czech - Expert (C2)</span>
+                    <div class="skill-bar-fill expert"></div> </li>
                 <li>
-                    <div class="skill-level basics" style="width: 20%;"> <span class="skill-name">English - Absolute beginner (A1)</span>
-                    </div>
-                </li>
+                    <span class="skill-name">English - Absolute beginner (A1)</span>
+                    <div class="skill-bar-fill basics"></div> </li>
             </ul>
         </div>
 
