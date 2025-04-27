@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moje GitHub Stránka</title>
+    <title>Moje GitHub Stránka | Dev Web</title>
     <style>
         body {
             font-family: sans-serif;
@@ -11,6 +11,9 @@
             margin: 20px;
             background-color: #f4f4f4;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 98vh; /* Zajistí, že footer bude dole */
         }
         .container {
             max-width: 800px;
@@ -19,37 +22,55 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex-grow: 1; /* Kontejner zabere dostupný prostor */
         }
         h1 {
             color: #0056b3;
+        }
+        .button-link {
+            display: inline-block; /* Aby se choval jako blok, ale zabral jen potřebné místo */
+            margin-top: 20px; /* Mezera nad tlačítkem */
+            padding: 10px 15px;
+            font-size: 1em;
+            color: #fff; /* Barva textu */
+            background-color: #007bff; /* Barva pozadí */
+            border: none; /* Odebere výchozí rámeček tlačítka */
+            border-radius: 5px; /* Zaoblené rohy */
+            cursor: pointer; /* Změní kurzor na ruku */
+            text-decoration: none; /* Odebere podtržení odkazu */
+            transition: background-color 0.3s ease; /* Plynulý přechod při najetí myší */
+        }
+        .button-link:hover {
+            background-color: #0056b3; /* Tmavší barva při najetí myší */
         }
         footer {
             margin-top: 20px;
             text-align: center;
             font-size: 0.9em;
             color: #777;
+            padding: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Vítejte na mé stránce!</h1>
+        <h1>Vítejte na mé dev web stránce!</h1>
         <p>
-            Tato stránka je hostována přímo z mého GitHub repozitáře pomocí **GitHub Pages**.
+            Tato stránka slouží jako vývojový web a testovací prostředí pro propojení s Google AdMob a Google Play účtem.
         </p>
         <p>
-            Je to skvělý způsob, jak rychle a zdarma zveřejnit statický web (HTML, CSS, JavaScript).
+            Zde najdete důležité soubory a odkazy související s ověřováním pro reklamní a aplikační služby.
         </p>
         <p>
-            Můžete tuto stránku upravit a přidat vlastní obsah.
+            Klikněte níže pro zobrazení souboru **app-ads.txt**:
         </p>
-        <p>
-            Pokud vidíte tento text na adrese <code>https://dominik-g-js.github.io/</code>, znamená to, že nastavení funguje správně!
-        </p>
+
+        <a href="https://dominik-g-js.github.io/app-ads.txt" class="button-link">Zobrazit app-ads.txt</a>
+
     </div>
 
     <footer>
-        <p>&copy; 2024 Dominik G. | Hostováno na GitHub Pages</p>
+        <p>&copy; 2025 Dominik G. | Hostováno na GitHub Pages | Dev Web</p>
     </footer>
 </body>
 </html>
