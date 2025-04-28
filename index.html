@@ -25,6 +25,7 @@
             line-height: 1.8; /* Slightly more line height for readability */
             background: var(--monster-dark-grey);
             color: var(--monster-light-grey);
+            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
         }
         h1, h2, h3 {
             font-family: 'Roboto', sans-serif;
@@ -66,6 +67,7 @@
             color: var(--monster-green);
             text-shadow: 0 0 20px rgba(153, 255, 0, 0.8); /* More pronounced neon glow */
             position: relative; z-index: 2;
+            animation: neon-glow 1.5s ease-in-out infinite alternate; /* Added pulsating neon glow */
         }
         header p {
             font-size: 1.6em; /* Larger tagline */
@@ -73,6 +75,7 @@
             color: var(--monster-light-grey);
             opacity: 1;
             position: relative; z-index: 2;
+            animation: fadeIn 2s ease-out; /* Added fade-in animation */
         }
         nav {
             background: var(--monster-black);
@@ -173,8 +176,8 @@
             transform-origin: left center; transition: width 2s cubic-bezier(0.42, 0, 0.58, 1); /* Slower, different easing */
             box-shadow: inset 0 -4px 8px rgba(0,0,0,0.6); /* Deeper inner shadow */
             background: linear-gradient(to right, var(--monster-green), #77CC00);
+             animation: pulse-skill-bar 2s infinite alternate; /* Added pulsating effect */
         }
-
 
         /* ==== EXPERIENCE ==== */
         .experience-item {
@@ -230,6 +233,10 @@
             transform: translateY(-6px); /* More lift */
             box-shadow: 0 10px 25px rgba(153, 255, 0, 0.6); /* More prominent green shadow */
         }
+         .button-link:active { /* Added active state */
+             transform: translateY(-3px);
+             box-shadow: 0 5px 15px rgba(153, 255, 0, 0.8);
+         }
 
 
         /* ==== SOCIAL ==== */
@@ -281,6 +288,54 @@
             text-decoration: underline;
              text-shadow: 0 0 10px rgba(153, 255, 0, 0.9); /* Stronger green glow */
         }
+
+        /* ==== ANIMATIONS ==== */
+        @keyframes neon-glow {
+            0% { text-shadow: 0 0 10px rgba(153, 255, 0, 0.5), 0 0 20px rgba(153, 255, 0, 0.5); }
+            100% { text-shadow: 0 0 20px rgba(153, 255, 0, 0.8), 0 0 30px rgba(153, 255, 0, 0.8), 0 0 40px rgba(153, 255, 0, 0.6); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes pulse-skill-bar {
+            0% { transform: scaleX(1); }
+            50% { transform: scaleX(1.005); }
+            100% { transform: scaleX(1); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Add particle background */
+        .header-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(153, 255, 0, 0.6); /* Green particles */
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particle-fade 3s ease-out infinite;
+        }
+
+        @keyframes particle-fade {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0.5); }
+        }
+
 
         /* ==== RESPONSIVE ==== */
         @media(max-width:1199px){ /* Adjustments for slightly smaller desktops/laptops */
@@ -382,7 +437,7 @@
 
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <header role="banner">
-        <h1>Dominik Gomboš</h1>
+         <div class="header-particles"></div> <h1>Dominik Gomboš</h1>
         <p>Web & App Developer | Crafting Digital Experiences</p>
     </header>
 
@@ -449,7 +504,7 @@
             <p style="text-align:center; margin-bottom:30px;">Reach out or find me on social media to follow my development journey and latest creations.</p>
             <div class="social-links">
                 <a href="https://www.instagram.com/memetiktokcz/" class="social-link instagram" aria-label="Follow me on Instagram" target="_blank" rel="noopener noreferrer">
-                     <svg width="24" height="24" fill="currentColor" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zM338.9 64c-26.2-2.3-107.2-2.3-143 0-35.9 1.7-67.7 9.9-93.9 36.2-26.2 26.2-34.4 58-36.2 93.9-2.3 26.2-2.3 107.2 0 143 1.7 35.9 9.9 67.7 36.2 93.9 26.2 26.2 58 34.4 93.9 36.2 35.9 2.3 107.2 2.3 143 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.3-35.9 2.3-107.2 0-143-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2z"/></svg>
+                     <svg width="24" height="24" fill="currentColor" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zM338.9 64c-26.2-2.3-107.2-2.3-143 0-35.9 1.7-67.7 9.9-93.9 36.2-26.2 26.2-34.4 58-36.2 93.9-2.3 26.2-2.3 107.2 0 143 1.7 35.9 9.9 67.7 36.2 93.9 26.2 26.2 58 34.4 93.9 36.2 35.9 2.3 107.2 2.3 143 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 58-34.4 93.9-36.2z"/></svg>
                 </a>
                 <a href="https://www.tiktok.com/@memetiktokcz" class="social-link tiktok" aria-label="Follow me on TikTok" target="_blank" rel="noopener noreferrer">
                     <svg width="24" height="24" fill="currentColor" viewBox="0 0 448 512"><path d="M448 209.9a210.1 210.1 0 0 1-122.8 152 187 187 0 0 1-136.3 0v-90.1c38 .3 76.1-.7 114.4-3.4V0h60v209.9z"/></svg>
@@ -554,6 +609,37 @@
                    skillObserver.observe(li);
              });
         });
+
+        // JavaScript for Particle Background Animation
+        const particlesContainer = document.querySelector('.header-particles');
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            const size = Math.random() * 10 + 5; // Random size between 5px and 15px
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${Math.random() * 100}%`; // Random horizontal position
+            particle.style.top = `${Math.random() * 100}%`; // Random vertical position
+            particle.style.animationDuration = `${Math.random() * 3 + 2}s`; // Random duration between 2s and 5s
+            particle.style.animationDelay = `${Math.random() * 2}s`; // Random delay up to 2s
+
+            particlesContainer.appendChild(particle);
+
+            // Remove particle after animation ends to prevent performance issues
+            particle.addEventListener('animationend', () => {
+                particle.remove();
+            });
+        }
+
+        // Create a few particles initially and then continuously
+        for (let i = 0; i < 30; i++) {
+            createParticle();
+        }
+
+        setInterval(createParticle, 500); // Create a new particle every 500ms
+
+
     </script>
 </body>
 </html>
