@@ -278,6 +278,18 @@
             box-shadow: 0 -5px 20px rgba(0,0,0,0.5); /* Shadow above footer */
         }
         footer p { margin: 12px 0; } /* More space */
+         /* Style for the reveal button/link */
+        .reveal-contact {
+            color: var(--monster-green);
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color .3s ease-in-out, text-shadow .3s ease-in-out;
+            text-shadow: none;
+        }
+        .reveal-contact:hover {
+             color: var(--monster-green);
+             text-shadow: 0 0 10px rgba(153, 255, 0, 0.9);
+        }
         footer a {
             color: var(--monster-green);
             transition: color .3s ease-in-out, text-shadow .3s ease-in-out;
@@ -288,6 +300,7 @@
             text-decoration: underline;
              text-shadow: 0 0 10px rgba(153, 255, 0, 0.9); /* Stronger green glow */
         }
+
 
         /* ==== ANIMATIONS ==== */
         @keyframes neon-glow {
@@ -400,8 +413,8 @@
              .experience-item h3 { font-size: 1.4em; margin-bottom: 6px; }
              .experience-item p { font-size: 0.95em; }
              .button-link{padding:12px 30px; font-size: 1em; margin-top: 25px; border-radius: 7px;}
-             .social-links { gap: 25px; margin-top: 35px; }
-             .social-link { width: 60px; height: 60px; box-shadow: 0 5px 15px rgba(0,0,0,.3); }
+             .social-links { gap: 25px; margin-top: 35px; flex-wrap: wrap; }
+             .social-link { width: 60px; height: 60px; box-shadow: 0 5px 15px rgba(0,0,0,.3); margin: 5px;} /* Added margin for wrapping */
              .social-link svg { width: 32px; height: 32px; }
              .social-link:hover { transform: scale(1.2) rotate(5deg); box-shadow: 0 12px 30px rgba(153, 255, 0, 0.3); }
              footer { padding: 40px 15px; font-size: 0.9em; border-top-width: 3px; }
@@ -529,7 +542,7 @@
     </main>
 
     <footer role="contentinfo">
-        <p>Contact: <a href="mailto:dominik.gombos@gmail.com">dominik.gombos@gmail.com</a> | +420 605 310 612</p>
+        <p>Contact: <span id="contact-info"><span class="reveal-contact" onclick="revealContact()">Show Contact Info</span></span></p>
         <p>© 2025 Dominik Gomboš | Hosted securely on <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a></p>
     </footer>
 
@@ -639,7 +652,13 @@
 
         setInterval(createParticle, 500); // Create a new particle every 500ms
 
-
+        // JavaScript to reveal contact information
+        function revealContact() {
+            const contactSpan = document.getElementById('contact-info');
+            if (contactSpan) {
+                contactSpan.innerHTML = '<a href="mailto:dominik.gombos@gmail.com">dominik.gombos@gmail.com</a> | +420 605 310 612';
+            }
+        }
     </script>
 </body>
 </html>
