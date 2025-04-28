@@ -27,12 +27,10 @@
             color: var(--monster-light-grey);
             overflow-x: hidden; /* Prevent horizontal scroll due to animations */
         }
-        h1, h2, h3 {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 700;
-            color: var(--monster-green);
+         /* Torch cursor style */
+        body.torch-cursor {
+             cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTEyIj4hLS0gRm9udCBBd2Vzb21lIFBybyA2LjAgNCBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gSExWKSAtLS4uLiA8cGF0aCBkPSJNMTc2IDI1NmMwLTM4LjYgMzEuNC03MCA3MC03MFMxNiAxNzMuNCAyNDYgMjU2IDE5MiAzMjYgMTc2IDMyNnMtNzAtMzEuNC03MC03MHptLTYyLjEgMTMwLjNjLTIwLjUtMzQuNy0zMy45LTY3LjktMzkuOC05Mi43LTIuOC0xMS42IDUtMjMuMSAxNi41LTI0LjkgNC4xLS42IDguNC0uOSAxMi45LS45IDQ3LjIgMCA4OS4xIDM1LjcgMTAwLjMgODMuMSAxMC4yIDQwLjUtNS42IDgwLjUtMzUuMSA5OS44LTMyIDIwLjUtNzQuMSAyOC4yLTEwNS4yIDI3LjctNTUuMy0uOS0xMDcuNC0yMy41LTE0MS43LTY0LjItMTAuOS0xMi44LTEuNi0zMi40IDIxLjUtMzQuNCAzMC4yLTIuNiA1OC41LTEwLjIgODUuMi0yMi42bDEuMS0uNWMxMS4xLTQuMyAxNi43LTE2LjQgMTQuOS0yOC40cy0xMy41LTIxLjUtMjUuNS0yMi45Yy0xMC44LTEuMi0yMS44LTIuMy0zMy0zLjVsLTIuNyLS4zYy0xMi4xLTEuNC0yMy4zLTIuNy0zMy42LTIuN3EtMTMuNCAwLTI1LjEgMi43YzMuNy0xMy43IDEwLjQtMjYuOSAxOC43LTM4LjljMTYuMi0yMy41IDM1LjEtNDEuNiA1Ni4xLTU0LjljMTkuNC0xMi4xIDQwLjEtMjEuMyA2MS43LTI2LjljNC44LTEuMyA5LjUtMi42IDE0LS4yIDkuOSAxOC43IDcuMSAzMS43LTIuNyA0Mi45LTEwLjMgMTEuOS0yMS40IDIyLjEtMzMgMzAuOWMtMzEuNyAyNC4xLTU1LjIgNTEuNS02My45IDg1Ljgtem0zMzEuMy01MC45YzI1LjktMTUuOCAzOC41LTIzLjEgMzYuNy0yOC4zYy03LjktMjIuMS0yOC42LTM3LTUzLjgtNDAuN2wxMS42LTQ3LjRjMi44LTExLjYtNC44LTIzLjItMTYuNC0yNi0yMi42LTUuNC00Ny4xLTUuOC03MS0xLjctMTUuNiAyLjctMzAuNCA2LjItNDQuNSA5LjlsLTEuMS4yYy0xMS42IDIuMS0xOS41IDEzLjgtMTcuNCAyNS40IDEuOSAxMC41IDkuMiAxOS4xIDE5LjUgMjIuNCA1LjcgMS44IDExLjggMy4yIDE4LjMgNC41IDI1LjcgNS4xIDQ3LjMgMTEuNSA1Ni41IDIwLjljOS40IDkuNyAxNi4xIDIxIDIxLjUgMzQuNGwzIDcuM3pNMjU2IDBjLTM1LjMgMC02NCAyOC43LTY0IDY0diAxMzMuNmMwIDUuNS00LjUgMTAtMTAgMTBzLTEwLTQuNS0xMC0xMFIxNzIgNjRjMC00Ni4zIDM3LjctODQgODQtODRzODQgMzcuNyA4NCA4NHYxMzkuNmMwIDUuNS00LjUgMTAtMTAgMTBzLTEwLTQuNS0xMC0xMFY2NGMwLTM1LjMtMjguNy02NC02NC02NHptMjI0IDM4NGMwIDIzLjktOC4yIDQ3LTIzLjcgNjUuMmMtMjYuNSA0NC45LTY1LjIgNzguNC0xMTEuNSA5Ny41LTMxLjQgMTMuMi02NC40IDIxLjgtOTguOCAyNC41Yy00LjcuNC04LjQtMi44LTguNC03LjVzMy43LTcuOSA4LjQtNy41YzMyLjUgLTIuNiA2NC45LTEwLjggOTQtMjMuMiA0MS40LTE3LjMgNzguMy00OS4xIDEwMi44LTg5IDExLjktMTQuNiAxNy43LTMxLjggMTcuNy01MC44IDAtNDQuMi0zNS44LTgwLTgwLTgwcS0uNyAwLTEuNCAuMWMtMTEuMyAxLjUtMjEuNiA1LjQtMjkuNSA4LjktMTMuNyAxMC41LTIzLjUgMjQuNS0yOC44IDQwLjZjLTYuNyAyMC4xLTQuMSAzOS43IDcuMyA1Ny41IDEzLjEgMjEuMSAzMC41IDM4LjcgNTIuNiA1MS45bDEuMyAxYy0xMi44IDkuNS0yNy42IDE2LjQtNDMuOCAyMC45LTUxLjkgMTQuNi0xMDUuNiAxNC4xLTE1Ni0uOS00Ni41LTEzLjgtOTAuMi0zNy41LTExOC41LTY5LjNjLTE2LjgtMTkuMS0yOC41LTM5LjktMzUuNS02Mi4zbC0xLjMtNC40Yy0uNC0xLjYtMS40LTIuOC0yLjQtMy42Yy0xMS41LTkuNi0yMS42LTIwLjEtMzAuNS0zMS43LTEwLjctMTMuNS0xNy42LTI4LjctMjAuNS00NC42Yy00LjItMjMuNS0xLjktNDcuNyA2LjktNjkuOSAxNi42LTQyIDQyLjgtNzguMyA3Ni44LTEwNy40IDMxLjctMjYuOCA3MC00OC40IDExMy42LTYxLjcgNS4yLTEuNiA4LjEtNy40IDYuNS0xMi42cy03LjQtOC4xLTEyLjYtNi41Yy00NS42IDE0LjItODguNiAzNy41LTEyNC4zIDY2LjVjLTM1LjQgMjguNS02Ni40IDY0LTkwLjkgMTA0LjctMTEuOCA5LjQtMjIgMTkuMy0zMC41IDI5LjVjLTMuNSA0LjEtNi42IDguNC05LjYgMTIuNy05LjEgMTMuMS0xNi41IDI3LjUtMjEuOSA0Mi42Yy05LjQgMjYuNS0xMS42IDU0LjEtNi45IDgxLjQtLjIgMS4yLS41IDIuNC0uNiAzLjZjLTUuOSAyMC4xLTQuOSAzOS41IDMuMyA1Ny41IDEzLjEgMjguOCA0MC40IDQ4LjQgNzEgNTkuOSAyNS4xIDkuNSAxMy4xIDE5LjUgMCAyMi42eiIvPjwvc3ZnPg=='), auto; /* Set cursor to torch SVG */
         }
-        a { color: inherit; text-decoration: none; }
 
         /* ==== SKIP LINK ==== */
         .skip-link {
@@ -238,6 +236,28 @@
              box-shadow: 0 5px 15px rgba(153, 255, 0, 0.8);
          }
 
+        .control-buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .control-button {
+            background: var(--monster-dark-grey);
+            color: var(--monster-green);
+            border: 2px solid var(--monster-green);
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .control-button:hover {
+            background-color: var(--monster-green);
+            color: var(--monster-dark-grey);
+        }
+
 
         /* ==== SOCIAL ==== */
         .social-links { display:flex; justify-content:center; gap:50px; margin-top:50px; } /* Increased gap and margin */
@@ -349,6 +369,19 @@
             100% { opacity: 0; transform: scale(0.5); }
         }
 
+         /* Burning animation */
+        @keyframes burning {
+            0% { opacity: 1; transform: scale(1) rotate(0deg); }
+            25% { opacity: 0.8; transform: scale(1.02) rotate(1deg); background-color: rgba(255, 165, 0, 0.5); } /* Orange tint */
+            50% { opacity: 0.6; transform: scale(1.05) rotate(-1deg); background-color: rgba(255, 0, 0, 0.5); } /* Red tint */
+            75% { opacity: 0.3; transform: scale(1.02) rotate(1deg); background-color: rgba(255, 165, 0, 0.3); } /* Orange tint */
+            100% { opacity: 0; transform: scale(0.8) rotate(0deg); background-color: transparent; }
+        }
+
+        .burning {
+            animation: burning 1s ease-in-out forwards;
+        }
+
 
         /* ==== RESPONSIVE ==== */
         @media(max-width:1199px){ /* Adjustments for slightly smaller desktops/laptops */
@@ -414,9 +447,9 @@
              .experience-item p { font-size: 0.95em; }
              .button-link{padding:12px 30px; font-size: 1em; margin-top: 25px; border-radius: 7px;}
              .social-links { gap: 25px; margin-top: 35px; flex-wrap: wrap; }
-             .social-link { width: 60px; height: 60px; box-shadow: 0 5px 15px rgba(0,0,0,.3); margin: 5px;} /* Added margin for wrapping */
-             .social-link svg { width: 32px; height: 32px; }
-             .social-link:hover { transform: scale(1.2) rotate(5deg); box-shadow: 0 12px 30px rgba(153, 255, 0, 0.3); }
+            .social-link { width: 60px; height: 60px; box-shadow: 0 5px 15px rgba(0,0,0,.3); margin: 5px;} /* Added margin for wrapping */
+            .social-link svg { width: 32px; height: 32px; }
+            .social-link:hover { transform: scale(1.2) rotate(5deg); box-shadow: 0 12px 30px rgba(153, 255, 0, 0.3); }
              footer { padding: 40px 15px; font-size: 0.9em; border-top-width: 3px; }
         }
         @media(max-width:479px){ /* Mobile small */
@@ -452,6 +485,10 @@
     <header role="banner">
          <div class="header-particles"></div> <h1>Dominik Gomboš</h1>
         <p>Web & App Developer | Crafting Digital Experiences</p>
+        <div class="control-buttons">
+            <button class="control-button" id="torch-button">Torch Mode</button>
+            <button class="control-button" id="reset-button">Reset</button>
+        </div>
     </header>
 
     <nav role="navigation" aria-label="Main menu">
@@ -656,9 +693,46 @@
         function revealContact() {
             const contactSpan = document.getElementById('contact-info');
             if (contactSpan) {
-                contactSpan.innerHTML = '<a href="mailto:dominik.gombos@gmail.com">dominik.gombos@gmail.com</a> | +420 605 310 612';
+                contactSpan.innerHTML = '<a href="mailto:dominik.gombos@gmail.com">dominik.gombos@gmail.com</a> | <a href="tel:+420605310612">+420 605 310 612</a>';
             }
         }
+
+        // JavaScript for Torch Mode
+        const torchButton = document.getElementById('torch-button');
+        const resetButton = document.getElementById('reset-button');
+        let isTorchMode = false;
+
+        torchButton.addEventListener('click', () => {
+            isTorchMode = !isTorchMode;
+            document.body.classList.toggle('torch-cursor', isTorchMode);
+            torchButton.textContent = isTorchMode ? 'Disable Torch' : 'Torch Mode';
+        });
+
+        resetButton.addEventListener('click', () => {
+            window.location.reload(); // Simplest way to reset the page state
+        });
+
+        document.addEventListener('click', (event) => {
+            if (isTorchMode) {
+                let targetElement = event.target;
+
+                // Find the closest parent div or the target itself if it's a div
+                while (targetElement && targetElement.tagName !== 'DIV') {
+                    targetElement = targetElement.parentElement;
+                }
+
+                if (targetElement && targetElement !== document.body) { // Prevent removing the body
+                    // Add burning animation class
+                    targetElement.classList.add('burning');
+
+                    // Remove the element after the animation
+                    targetElement.addEventListener('animationend', () => {
+                        targetElement.remove();
+                    });
+                }
+            }
+        });
+
     </script>
 </body>
 </html>
