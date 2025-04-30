@@ -201,6 +201,30 @@
         .experience-item p { margin:6px 0; color:var(--monster-light-grey); font-size: 1.15em; } /* Larger text */
         .experience-item p:first-of-type { font-weight: 600; color: var(--monster-light-grey); }
 
+        /* ==== WEBSITES ==== */
+        .website-list { list-style: none; padding: 0; }
+        .website-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(var(--monster-green), 0.05);
+            border: 1px solid rgba(var(--monster-green), 0.2);
+            border-radius: 8px;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .website-item a {
+             color: var(--monster-green);
+             font-weight: 600;
+             text-decoration: none;
+             transition: text-decoration 0.3s ease-in-out;
+        }
+        .website-item a:hover {
+             text-decoration: underline;
+        }
+         .website-item:hover {
+             background-color: rgba(var(--monster-green), 0.1);
+             transform: translateX(10px);
+         }
+
         /* ==== BUTTON ==== */
         .button-link {
             display:inline-block; margin-top:40px; padding:18px 45px; /* More padding */
@@ -376,14 +400,15 @@
          /* Burning animation */
         @keyframes burning {
             0% { opacity: 1; transform: scale(1) rotate(0deg); filter: blur(0); box-shadow: 0 0 0 rgba(255,165,0,0); }
-            25% { opacity: 0.8; transform: scale(1.02) rotate(1deg); background-color: rgba(255, 140, 0, 0.6); filter: blur(1px); box-shadow: 0 0 15px rgba(255,140,0,0.8); } /* Darker orange glow */
-            50% { opacity: 0.5; transform: scale(1.05) rotate(-1deg); background-color: rgba(255, 0, 0, 0.6); filter: blur(2px); box-shadow: 0 0 25px rgba(255,0,0,0.9); } /* Red glow */
-            75% { opacity: 0.2; transform: scale(1.02) rotate(1deg); background-color: rgba(255, 140, 0, 0.4); filter: blur(1px); box-shadow: 0 0 15px rgba(255,140,0,0.6); } /* Darker orange glow */
+            20% { opacity: 0.9; transform: scale(1.01) rotate(0.5deg); background-color: rgba(255, 165, 0, 0.7); filter: blur(0.5px); box-shadow: 0 0 10px rgba(255,165,0,0.7); } /* Orange glow */
+            40% { opacity: 0.7; transform: scale(1.03) rotate(-0.5deg); background-color: rgba(255, 69, 0, 0.7); filter: blur(1px); box-shadow: 0 0 20px rgba(255,69,0,0.8); } /* Red-orange */
+            60% { opacity: 0.4; transform: scale(1.04) rotate(0.5deg); background-color: rgba(255, 0, 0, 0.6); filter: blur(1.5px); box-shadow: 0 0 30px rgba(255,0,0,0.9); } /* Red */
+            80% { opacity: 0.1; transform: scale(1.03) rotate(-0.5deg); background-color: rgba(255, 69, 0, 0.4); filter: blur(1px); box-shadow: 0 0 20px rgba(255,69,0,0.6); } /* Red-orange */
             100% { opacity: 0; transform: scale(0.8) rotate(0deg); background-color: transparent; filter: blur(0); box-shadow: 0 0 0 rgba(255,165,0,0); }
         }
 
         .burning {
-            animation: burning 1s ease-in-out forwards;
+            animation: burning 1.2s ease-in-out forwards; /* Increased animation duration */
         }
 
 
@@ -482,7 +507,6 @@
              footer { padding: 30px 10px; font-size: 0.85em; border-top-width: 2px; }
         }
     </style>
-    <meta name="google-site-verification" content="VlRuOE3rJl8zDPwbERe1Fm-Ug_zYPGKdXH_QdumhNdY" />
 </head>
 <body>
 
@@ -502,7 +526,7 @@
             <li><a href="#skills">Skills</a></li>
             <li><a href="#languages">Languages</a></li>
             <li><a href="#experience">Experience</a></li>
-            <li><a href="#connect">Connect</a></li>
+            <li><a href="#websites">Websites</a></li> <li><a href="#connect">Connect</a></li>
             <li><a href="#devlinks">Resources</a></li>
         </ul>
     </nav>
@@ -557,6 +581,21 @@
                 </div>
             </div>
         </section>
+
+         <section id="websites" aria-labelledby="websites-title">
+            <h2 id="websites-title">Websites I've Worked On</h2>
+             <div> <p style="text-align:center; margin-bottom:30px;">Here are some of the websites where I have contributed my development skills, with significant work on e-abctiskarna.cz.</p>
+                <ul class="website-list">
+                    <li class="website-item"><a href="https://www.e-abctiskarna.cz/" target="_blank" rel="noopener noreferrer">e-abctiskarna.cz (Most work)</a></li>
+                    <li class="website-item"><a href="https://vop.cz/" target="_blank" rel="noopener noreferrer">vop.cz</a></li>
+                    <li class="website-item"><a href="https://www.rynek.club/" target="_blank" rel="noopener noreferrer">rynek.club</a></li>
+                    <li class="website-item"><a href="https://www.blasercafe-czech.cz/" target="_blank" rel="noopener noreferrer">blasercafe-czech.cz</a></li>
+                    <li class="website-item"><a href="https://nemovitosti.ovajih.cz/" target="_blank" rel="noopener noreferrer">nemovitosti.ovajih.cz</a></li>
+                    <li class="website-item"><a href="https://www.shopfix.cz/" target="_blank" rel="noopener noreferrer">shopfix.cz</a></li>
+                </ul>
+             </div>
+        </section>
+
 
         <section id="connect" aria-labelledby="connect-title">
             <h2 id="connect-title">Let's Connect</h2>
@@ -724,39 +763,76 @@
             window.location.reload(); // Simplest way to reset the page state
         });
 
-        document.addEventListener('click', (event) => {
+       document.addEventListener('click', (event) => {
             if (isTorchMode) {
                 let targetElement = event.target;
 
                 // Define elements that should NOT be burnable
-                const unburnableTags = ['HTML', 'BODY', 'SCRIPT', 'STYLE', 'HEAD', 'META', 'LINK', 'TITLE'];
-                const unburnableIds = ['torch-button', 'reset-button', 'contact-info']; // Add IDs of control elements
-                 const unburnableClasses = ['control-buttons', 'social-link', 'social-links', 'reveal-contact']; // Add classes of control/social elements
+                const unburnableTags = ['HTML', 'BODY', 'HEAD', 'META', 'LINK', 'TITLE', 'SCRIPT', 'STYLE', 'NAV', 'HEADER', 'FOOTER'];
+                const unburnableIds = ['torch-button', 'reset-button', 'contact-info', 'main-content'];
+                const unburnableClasses = ['control-buttons', 'social-link', 'social-links', 'reveal-contact', 'header-particles', 'particle']; // Added particle classes
 
-                // Traverse up the DOM to find a suitable element to burn
-                // This will be a block-level element or interactive element, but not unburnable
-                while (targetElement && targetElement !== document.body && !unburnableTags.includes(targetElement.tagName) && !unburnableIds.includes(targetElement.id) && !unburnableClasses.some(cls => targetElement.classList.contains(cls))) {
-                     // Check if the element is a block-level element or has significant content
-                     const display = window.getComputedStyle(targetElement).display;
-                     if (display === 'block' || display === 'flex' || display === 'grid' || targetElement.tagName === 'SECTION' || targetElement.tagName === 'ARTICLE' || targetElement.tagName === 'ASIDE' || targetElement.tagName === 'NAV' || targetElement.tagName === 'HEADER' || targetElement.tagName === 'FOOTER' || targetElement.tagName === 'MAIN' || targetElement.tagName === 'UL' || targetElement.tagName === 'OL' || targetElement.tagName === 'LI' || targetElement.tagName === 'P' || targetElement.tagName === 'H1' || targetElement.tagName === 'H2' || targetElement.tagName === 'H3' || targetElement.tagName === 'H4' || targetElement.tagName === 'H5' || targetElement.tagName === 'H6' || targetElement.tagName === 'IMG' || targetElement.tagName === 'SVG' || targetElement.tagName === 'CANVAS' || targetElement.tagName === 'VIDEO' || targetElement.tagName === 'AUDIO' || targetElement.tagName === 'TABLE' || targetElement.tagName === 'FORM') {
-                          break; // Found a suitable block-level or content element
+                // Traverse up the DOM to find a suitable parent element to burn
+                // This will be a block-level element or an element containing content,
+                // stopping if we hit an unburnable element, body, or main.
+                let elementToBurn = null;
+                let currentElement = targetElement;
+
+                while (currentElement && currentElement !== document.body && currentElement !== document.getElementById('main-content')) {
+                     const tagName = currentElement.tagName;
+                     const isUnburnable = unburnableTags.includes(tagName) || unburnableIds.includes(currentElement.id) || unburnableClasses.some(cls => currentElement.classList.contains(cls));
+
+                     if (!isUnburnable) {
+                         const display = window.getComputedStyle(currentElement).display;
+                          // Consider more elements burnable, focusing on content containers
+                          if (display === 'block' || display === 'flex' || display === 'grid' || tagName === 'SECTION' || tagName === 'ARTICLE' || tagName === 'ASIDE' || tagName === 'UL' || tagName === 'OL' || tagName === 'LI' || tagName === 'P' || tagName === 'H1' || tagName === 'H2' || tagName === 'H3' || tagName === 'H4' || tagName === 'H5' || tagName === 'H6' || tagName === 'IMG' || tagName === 'SVG' || tagName === 'CANVAS' || tagName === 'VIDEO' || tagName === 'AUDIO' || tagName === 'TABLE' || tagName === 'FORM' || currentElement.children.length > 0) {
+                               // Prioritize smaller containers first, but ensure it's not just inline text
+                                if (tagName !== 'SPAN' && tagName !== 'A' && tagName !== 'STRONG' && tagName !== 'EM') {
+                                    elementToBurn = currentElement;
+                                } else if (!elementToBurn) { // If no better element found yet, consider this one
+                                     elementToBurn = currentElement;
+                                }
+                          }
                      }
-                     targetElement = targetElement.parentElement;
+
+                     currentElement = currentElement.parentElement;
                 }
 
 
-                // If a suitable element is found and it's not null or the body
-                if (targetElement && targetElement !== document.body && !unburnableTags.includes(targetElement.tagName) && !unburnableIds.includes(targetElement.id) && !unburnableClasses.some(cls => targetElement.classList.contains(cls))) {
-                    // Add burning animation class
-                    targetElement.classList.add('burning');
+                // If a suitable element is found and it's not null or one of the explicit unburnables
+                if (elementToBurn && elementToBurn !== document.body && elementToBurn !== document.getElementById('main-content') && !unburnableTags.includes(elementToBurn.tagName) && !unburnableIds.includes(elementToBurn.id) && !unburnableClasses.some(cls => elementToBurn.classList.contains(cls))) {
+                     // Prevent burning the element if it contains any unburnable children
+                     let hasUnburnableChild = false;
+                     const checkChildren = (element) => {
+                          for (const child of element.children) {
+                               const tagName = child.tagName;
+                                const isUnburnable = unburnableTags.includes(tagName) || unburnableIds.includes(child.id) || unburnableClasses.some(cls => child.classList.contains(cls));
+                                if (isUnburnable) {
+                                     hasUnburnableChild = true;
+                                     return;
+                                }
+                                checkChildren(child); // Recurse through children
+                          }
+                     };
+                     checkChildren(elementToBurn);
 
-                    // Remove the element after the animation duration
-                    targetElement.addEventListener('animationend', () => {
-                        targetElement.remove();
-                    });
+                     if (!hasUnburnableChild) {
+                         // Add burning animation class
+                         elementToBurn.classList.add('burning');
+
+                         // Remove the element after the animation duration
+                         elementToBurn.addEventListener('animationend', () => {
+                             elementToBurn.remove();
+                         });
+                     } else {
+                          console.log('Prevented burning of element containing unburnable child:', elementToBurn);
+                     }
+                } else {
+                     console.log('No suitable element found to burn or element is unburnable.');
                 }
             }
         });
+
 
     </script>
 </body>
