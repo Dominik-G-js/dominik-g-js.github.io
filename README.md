@@ -72,5 +72,4 @@ Access important links and resources related to my work:
 - [View GitHub Profile](https://github.com/Dominik-G-js)
 
 ---
-kys
 Thank you for visiting my portfolio!
