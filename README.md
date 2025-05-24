@@ -33,7 +33,7 @@ Here are some of the technologies and tools I work with:
 
 **Programmer**
 *Webdevel s.r.o., Ostrava, CZ*
-*December 2022 – Present (Expected End: December 2025)*
+*December 2022 – Present (Expected End: March 2025)*
 Led the development and ongoing maintenance of e-commerce solutions on the Upgates platform, applying expertise in Latte, Nette, HTML, JavaScript, and AJAX to build robust and scalable features.
 
 **Junior Programmer**
